@@ -1,5 +1,39 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+
+import { onMounted, ref } from 'vue'
+
+import { auth } from './firebase.js'
+
+import { signOut, onAuthStateChanged } from 'firebase/auth'
+
+import router from './router'
+
+let isLoggedIn = ref(false)
+
+onMounted(() => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      isLoggedIn.value = true
+      console.log("User logged in", auth.currentUser)
+    } else {
+      isLoggedIn.value = false
+      console.log("User logged out", auth.currentUser)
+    }
+  })
+})
+
+let logOut = () => {
+  signOut(auth)
+    .then(() => {
+      console.log("User logged out", auth.currentUser)
+      router.push('/login')
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
+
 </script>
 
 <template>
@@ -7,12 +41,14 @@ import { RouterLink, RouterView } from 'vue-router'
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
     <div class="wrapper">
-      
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/navguard">NavGuard</RouterLink>
+        <RouterLink to="/login">Login</RouterLink>
       </nav>
+      <button @click="logOut" v-if="isLoggedIn">Log Out</button>
     </div>
   </header>
 

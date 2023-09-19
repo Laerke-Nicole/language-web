@@ -2,50 +2,57 @@
   <div class="about">
     <h1>This is an about page</h1>
 
-    <div v-for="teacher in teachers" :key="teacher">
+    <button class="btn-add" @click="firebaseAddSingleItem()">Add item</button>
+
+    <div>
+      <input type="text" placeholder="Product name" v-model="AddProductData.productName">
+      <input type="text" placeholder="Product name" v-model="AddProductData.productPrice">
+    </div>
+    
+    <hr>
+
+    <div v-for="product in products" :key="product">
       <p>
-        TeacherID: {{ teacher.id }}
+        ProductID: {{ product.id }}
       </p>
       <p>
-        TeacherName: {{ teacher.teacherName }}
+        ProductName: {{ product.productName }}
       </p>
       <p>
-        TeacherPrice: {{ teacher.teacherPrice }}
+        ProductPrice: {{ product.productPrice }}
       </p>
+      <button class="btn-delete" @click="firebaseDeleteSingleItem(product.id)">Delete item</button>
+
+      <p>
+        <input type="text" placeholder="New product name" v-model="product.productName">
+      </p>
+      <p>
+        <input type="text" placeholder="New product name" v-model="product.productPrice">
+      </p>
+      <button class="btn-edit" @click="firebaseUpdateSingleItem(product.id)">Edit item</button>
+      <hr>
+
     </div>
 
   </div>
 </template>
 
 <script setup>
-import { db } from '../firebase.js'
-import { ref } from 'vue'
-import { collection, onSnapshot } from 'firebase/firestore';
+import useProducts from '../modules/useProducts.js'
 import { onMounted } from 'vue'
 
-// to store data from firebase
-const teachers = ref([]); 
-
-// tell the system where to get the information from (which collection)
-const teacherDataRef = collection(db, 'teachers');
-
-// store documents
-const getTeachersData = () => {
-  onSnapshot(teacherDataRef, (snapshot) => {
-    teachers.value = snapshot.docs.map(doc => {
-      return {
-        id: doc.id,
-        ...doc.data()
-        // productName: doc.data().productName,
-        // productPrice: doc.data().productPrice,
-      }
-    })
-  })
-  console.log("test", teachers)
-}
+// create file and only grab data we need... add everytime u want to add a function like add button that deletes items
+const { products, 
+  getProductsData, 
+  firebaseDeleteSingleItem, 
+  firebaseAddSingleItem,
+  AddProductData,
+  firebaseUpdateSingleItem,
+  // UpdateProductData
+} = useProducts();
 
 onMounted(() => {
-  getTeachersData();
+  getProductsData();
 })
 
 
