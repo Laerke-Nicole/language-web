@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    Individual tutors page
   </div>
 </template>
 

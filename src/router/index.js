@@ -14,7 +14,7 @@ const router = createRouter({
       path: '/tutordetails/:id',
       name: 'tutorialdetails',
       component: () => import('../views/TutorDetailView.vue'),
-      
+      props:true
     },
     {
       path: '/navguard',

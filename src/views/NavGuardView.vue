@@ -1,59 +1,85 @@
 <template>
-    <h1>This is an about page</h1>
+    <h1>Add tutor information</h1>
+
+    
+
+    <div class="flex flex-col justify-center parameters-container">
+        <input type="text" placeholder="Tutors name" v-model="AddTutorData.tutorName">
+        <input type="text" placeholder="Tutor speaks" v-model="AddTutorData.tutorSpeaks">
+        <input type="text" placeholder="Tutor description" v-model="AddTutorData.tutorDescription">
+        <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice">
+        <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout">
+        <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle">
+        <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImage">
+    </div>
 
     <button class="btn-add" @click="firebaseAddSingleItem()">Add item</button>
 
-    <div>
-    <input type="text" placeholder="Product name" v-model="AddProductData.productName">
-    <input type="text" placeholder="Product name" v-model="AddProductData.productPrice">
-    </div>
-
     <hr>
 
-    <div v-for="product in products" :key="product">
+    <div v-for="tutor in tutors" :key="tutor">
     <p>
-        ProductID: {{ product.id }}
+        TutorID: {{ tutor.id }}
     </p>
     <p>
-        ProductName: {{ product.productName }}
+        TutorName: {{ tutor.tutorName }}
     </p>
     <p>
-        ProductPrice: {{ product.productPrice }}
+        TutorSpeaks: {{ tutor.tutorSpeaks }}
     </p>
-    <button class="btn-delete" @click="firebaseDeleteSingleItem(product.id)">Delete item</button>
+    <p>
+        TutorDescription: {{ tutor.tutorDescription }}
+    </p>
+    <p>
+        TutorPrice: {{ tutor.tutorPrice }}
+    </p>
+    <p>
+        TutorAbout: {{ tutor.tutorAbout }}
+    </p>
+    <p>
+        TutorTeachingStyle: {{ tutor.tutorTeachingStyle }}
+    </p>
+    <p>
+        TutorImage: {{ tutor.tutorImage }}
+    </p>
+
+    <button class="btn-delete" @click="firebaseDeleteSingleItem(tutor.id)">Delete item</button>
 
     <p>
-        <input type="text" placeholder="New product name" v-model="product.productName">
+        <input type="text" placeholder="New tutor name" v-model="tutor.tutorName">
     </p>
     <p>
-        <input type="text" placeholder="New product name" v-model="product.productPrice">
+        <input type="text" placeholder="New tutor name" v-model="tutor.tutorPrice">
     </p>
-    <button class="btn-edit" @click="firebaseUpdateSingleItem(product.id)">Edit item</button>
+    <button class="btn-edit" @click="firebaseUpdateSingleItem(tutor.id)">Edit item</button>
     <hr>
 
     </div>
 </template>
 
 <script setup>
-import useProducts from '../modules/useProducts.js'
+import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
-const { products, 
-  getProductsData, 
+const { tutors, 
+  getTutorsData, 
   firebaseDeleteSingleItem, 
   firebaseAddSingleItem,
-  AddProductData,
+  AddTutorData,
   firebaseUpdateSingleItem,
-  // UpdateProductData
-} = useProducts();
+  // UpdateTutorData
+} = useTutors();
 
 onMounted(() => {
-  getProductsData();
+  getTutorsData();
 })
 
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.parameters-container {
+    padding: 0 10%;
+}
 
 </style>
