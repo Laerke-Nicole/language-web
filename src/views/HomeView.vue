@@ -36,7 +36,7 @@ onMounted(() => {
       <div class="pt-14 pb-14 flex flex-col self-center">
         <div v-for="tutor in tutors" :key="tutor" class="p-4">
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
-            <div class="flex bg-green-600 h-56">
+            <div class="flex bg-blue-300 h-56">
               <div>
                 <img :src="tutor.tutorImage" alt="tutor image" />
               </div>
