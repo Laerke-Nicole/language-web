@@ -28,16 +28,13 @@
 
 
 
-
-
-<!-- 
     <div>
         <h1>Login</h1>
         Username: <input type="text" v-model="email" />
         Password: <input type="password" v-model="password" />
         <p v-if="errMsg">{{ errMsg }}</p>
         <button @click="logIn">Login</button>
-    </div> -->
+    </div>
 </template>
 
 <script setup>
@@ -78,6 +75,9 @@ let logIn = () => {
         })
 }
 
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 
 </script>
 

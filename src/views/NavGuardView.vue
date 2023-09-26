@@ -101,6 +101,7 @@
 import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
 
+
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { tutors, 
   getTutorsData, 
@@ -128,6 +129,10 @@ function closeModal() {
 function showModal() {
   isShowModal.value = true
 }
+
+onMounted(() => {
+  window.scrollTo(0, 0)
+})
 
 </script>
 

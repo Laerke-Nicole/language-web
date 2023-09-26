@@ -12,7 +12,7 @@ const router = createRouter({
     },
     {
       path: '/tutordetails/:id',
-      name: 'tutorialdetails',
+      name: 'tutordetails',
       component: () => import('../views/TutorDetailView.vue'),
       props:true
     },
