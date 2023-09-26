@@ -12,13 +12,29 @@ const useProducts = () => {
     // v-model is attached to this
     const AddProductData = ref({
         productName: "",
-        productPrice: ""
+        productPrice: "",
+
+        tutorName: "",
+        tutorSpeaks: "",
+        tutorDescription: "",
+        tutorPrice: "",
+        tutorAbout: "",
+        tutorTeachingStyle: "",
+        tutorImg: "",
     })
 
 
     const UpdateProductData = ref({
         productName: "",
-        productPrice: ""
+        productPrice: "",
+
+        tutorName: "",
+        tutorSpeaks: "",
+        tutorDescription: "",
+        tutorPrice: "",
+        tutorAbout: "",
+        tutorTeachingStyle: "",
+        tutorImg: "",
     })
 
     // store documents
@@ -49,12 +65,29 @@ const useProducts = () => {
             // tell it what to add
             {
                 productName: AddProductData.value.productName,
-                productPrice: AddProductData.value.productPrice
+                productPrice: AddProductData.value.productPrice,
+
+
+                tutorName: AddProductData.value.tutorName,
+                tutorSpeaks: AddProductData.value.tutorSpeaks,
+                tutorDescription: AddProductData.value.tutorDescription,
+                tutorPrice: AddProductData.value.tutorPrice,
+                tutorAbout: AddProductData.value.tutorAbout,
+                tutorTeachingStyle: AddProductData.value.tutorTeachingStyle,
+                tutorImg: AddProductData.value.tutorImg,
             }
         )
         .then({
             productName: AddProductData.value.productName = '',
-           productPrice: AddProductData.value.productPrice = ''
+            productPrice: AddProductData.value.productPrice = '',
+           
+            tutorName: AddProductData.value.tutorName = '',
+            tutorSpeaks: AddProductData.value.tutorSpeaks = '',
+            tutorDescription: AddProductData.value.tutorDescription = '',
+            tutorPrice: AddProductData.value.tutorPrice = '',
+            tutorAbout: AddProductData.value.tutorAbout = '',
+            tutorTeachingStyle: AddProductData.value.tutorTeachingStyle = '',
+            tutorImg: AddProductData.value.tutorImg = '',
         })
 
         console.log("is added")
@@ -64,10 +97,29 @@ const useProducts = () => {
     const firebaseUpdateSingleItem = async (product) => { 
         await updateDoc(doc(productDataRef, product), {
             productName: products.value.find(product => product.id === product.id).productName,
+
+            tutorName: products.value.find(product => product.id === product.id).tutorName,
+            tutorSpeaks: products.value.find(product => product.id === product.id).tutorSpeaks,
+            tutorDescription: products.value.find(product => product.id === product.id).tutorDescription,
+            tutorPrice: products.value.find(product => product.id === product.id).tutorPrice,
+            tutorAbout: products.value.find(product => product.id === product.id).tutorAbout,
+            tutorTeachingStyle: products.value.find(product => product.id === product.id).tutorTeachingStyle,
+            tutorImg: products.value.find(product => product.id === product.id).tutorImg,
+
+
             // productName: UpdateProductData.value.productName,
             // productPrice: 200
         }).then(() => {
             UpdateProductData.value.productName = ''
+            UpdateProductData.value.productPrice = ''
+            
+            UpdateProductData.value.tutorName = ''
+            UpdateProductData.value.tutorSpeaks = ''
+            UpdateProductData.value.tutorDescription = ''
+            UpdateProductData.value.tutorPrice = ''
+            UpdateProductData.value.tutorAbout = ''
+            UpdateProductData.value.tutorTeachingStyle = ''
+            UpdateProductData.value.tutorImg = ''
         })
     }
 
