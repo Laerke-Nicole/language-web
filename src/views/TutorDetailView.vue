@@ -1,7 +1,5 @@
 <template>
-  <div>
-    Individual tutors page
-  </div>
+
 </template>
 
 <script setup>
@@ -10,6 +8,6 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 
 </style>

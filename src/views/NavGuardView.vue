@@ -1,4 +1,14 @@
 <template>
+
+<div v-if="isLoggedIn && email.value === 'admin@admin.com' && password.value === '123456'">
+  Så vises admin side
+</div>
+
+<div v-else="isloggedIn">
+  Then show the normal page
+</div>
+
+
     <div class="parameters-container">
 
         <div class="flex flex-col justify-center gap-2">

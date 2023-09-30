@@ -18,37 +18,42 @@ onMounted(() => {
 
 <template>
   <main>
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-
     <!-- <div v-if="isLoggedIn">Logged in</div>
 
     <div v-else>Ikke logged ind</div> -->
 
-    <div class="container tenPercent flex flex-col justify-center ">
-      <div>
+    <div class="p-20 container tenPercent flex flex-col justify-center">
+      <div class="flex gap-4 flex-row">
         <button class="button">Language</button>
         <button class="button">Something</button>
       </div>
 
+      <h1>hej</h1>
 
-      <div class="pt-14 pb-14 flex flex-col self-center">
-        <div v-for="tutor in tutors" :key="tutor" class="p-4">
+      <!-- container for all tutors -->
+      <div class="pt-14 pb-14 flex flex-col gap-4">
+        <div v-for="tutor in tutors" :key="tutor">
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
-            <div class="flex bg-blue-300 h-56">
-              <div>
-                <img :src="tutor.tutorImage" alt="tutor image" />
+
+            <!-- box with tutor info -->
+            <div class="rounded flex flex-row pt-12 pb-12 primary-bg">
+
+              <!-- tutor profile picture -->
+              <div class="tenPercent flex flex-col justify-center">
+                <!-- <img :src="tutor.tutorImage" alt="tutor image" /> -->
+                <div class="p-10 secondary-bg"></div>
               </div>
 
-              <div class="flex flex-col">
+              <!-- tutor info -->
+              <div class="flex flex-col gap-3 w-4/12">
                 <p>{{ tutor.tutorName }}</p>
                 <p>{{ tutor.tutorSpeaks }}</p>
                 <p>{{ tutor.tutorDescription }}</p>
                 <p class="pt-4">{{ tutor.tutorPrice }} EUR</p>
               </div>
 
-              <div>
+              <!-- button with call to action -->
+              <div class="tenPercent flex flex-col justify-end">
                 <button class="button">See more</button>
               </div>
             </div>
@@ -77,9 +82,7 @@ onMounted(() => {
 
 
 <style scoped>
-.container {
-  width: 100%;
 
-}
+
 
 </style>

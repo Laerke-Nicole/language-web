@@ -8,13 +8,78 @@ h1 {
     font-size: 28px;
 }
 
+h1, h2, h3, h4, h5 {
+    color: var(--black-headline);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}   
+
+p {
+    font-size: 16px;
+    color: var(--black-text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .button {
-    background-color: red;
+    background-color: var(--white-headline);
     padding: 10px 20px;
-    margin: 12px 0 18px 0;
+    color: var(--black-text);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.button:hover {
+    background-color: var(--white-text);
+    transition: 0.3s;
 }
 
 .tenPercent {
     padding-right: 10%;
     padding-left: 10%;
+}
+
+
+/* classes for colors */
+.primary-color {
+    color: var(--primary-color);
+}
+
+.secondary-color {
+    color: var(--secondary-color);
+}
+
+.tertiary-color {
+    color: var(--tertiary-color);
+}
+
+
+/* classes for background colors */
+.primary-bg {
+    background-color: var(--primary-color);
+}
+
+.secondary-bg {
+    background-color: var(--secondary-color);
+}
+
+.tertiary-bg {
+    background-color: var(--tertiary-color);
+}
+
+
+/* classes for text colors  */
+.black-headline {
+    color: var(--black-headline);
+}
+
+.black-text {
+    color: var(--black-text);
+}
+
+.white-headline {
+    color: var(--white-headline);
+}
+
+.white-text {
+    color: var(--white-text);
 }
