@@ -71,9 +71,9 @@ const mobileMenuOpen = ref(false)
 
       <!-- nav links -->
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
-        <RouterLink to="/login" class="text-sm font-semibold leading-6 text-gray-900">Find a teacher</RouterLink>
-        <RouterLink to="/login" class="text-sm font-semibold leading-6 text-gray-900">Group class</RouterLink>
-        <RouterLink to="/login" class="text-sm font-semibold leading-6 text-gray-900">Community</RouterLink>
+        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Find a tutor</RouterLink>
+        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Languages</RouterLink>
+        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Community</RouterLink>
       </PopoverGroup>
 
       <!-- log in and register -->
@@ -104,9 +104,9 @@ const mobileMenuOpen = ref(false)
 
             <!-- nav links -->
             <div class="space-y-2 py-6">
-              <RouterLink to="/login" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Find a teacher</RouterLink>
-              <RouterLink to="/login" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Group class</RouterLink>
-              <RouterLink to="/login" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Community</RouterLink>
+              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Find a teacher</RouterLink>
+              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Group class</RouterLink>
+              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Community</RouterLink>
             </div>
 
             <!-- log in and register -->
@@ -119,36 +119,62 @@ const mobileMenuOpen = ref(false)
       </DialogPanel>
     </Dialog>
   </header>
-
-
-
-
-
-    
-    <!-- <div class="wrapper">
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/navguard">NavGuard</RouterLink>
-        <RouterLink to="/login">Login</RouterLink>
-      </nav>
-      <button @click="logOut" v-if="isLoggedIn">Log Out</button>
-    </div> -->
-
-
   <RouterView />
 
   <footer>
+    <div class="flex flex-row ten-percent pt-14 pb-14 justify-evenly">
 
+      <!-- left side of footer -->
+      <div class="flex flex-col">
+        <div>
+          <img src="" alt="company logo" height="60px">
+        </div>
+        <h5 class="pt-2 pb-2 ">Name of company</h5>
+        <p>Solskinsvej 45, Esbjerg 6700</p>
+        <p>+45 49 88 08 94</p>
+
+        <!-- social media logos -->
+        <div class="SoMe-logos flex pt-3 gap-4">
+          <a href="" target="_blank">
+            <img src="" alt="Facebook-logo" height="40px">
+          </a>
+          <a href="" target="_blank">
+            <img src="" alt="Instagram-logo" height="40px">
+          </a>
+        </div>
+      </div>
+
+      <!-- middle of footer -->
+      <div>
+        <h5 class="pb-2">Information</h5>
+        <ul>
+          <RouterLink to="/"><li>Contact us</li></RouterLink>
+          <RouterLink to="/"><li>About us</li></RouterLink>
+          <RouterLink to="/"><li>FAQ</li></RouterLink>
+        </ul>
+      </div>
+
+      <!-- right side of footer -->
+      <div>
+        <h5 class="pb-2">Languages</h5>
+        <ul>
+          <RouterLink to="/"><li>Danish</li></RouterLink>
+          <RouterLink to="/"><li>Dutch</li></RouterLink>
+          <RouterLink to="/"><li>English</li></RouterLink>
+          <RouterLink to="/"><li>Spanish</li></RouterLink>
+        </ul>
+      </div>
+    </div>
+      
   </footer>
-
-
-
-
-
 </template>
 
 <style scoped>
+header {
+  /* position: fixed; */
+}
 
+footer li:hover {
+  color: var(--black-hover);
+}
 </style>

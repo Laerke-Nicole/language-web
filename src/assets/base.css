@@ -4,6 +4,10 @@
   --black-text: #575757;
   --white-headline: #FCFFF5;
   --white-text: #f0f0f0;
+
+  /* hover colors on text colors */
+  --black-hover: #6d6d6d;
+  --white-hover: #d0d0d0;
 }
 
 /* color palette */
