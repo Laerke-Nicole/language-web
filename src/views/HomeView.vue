@@ -30,7 +30,7 @@ onMounted(() => {
       </div>
 
       <div class="frontpage-right ten-percent pt-20 pb-20 justify-center content-center">
-        <div>
+        <div class="round-corner">
           <img src="" alt="frontpage image">
         </div>
       </div>
@@ -55,7 +55,7 @@ onMounted(() => {
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
             <div class="card-content flex flex-col round-corner tertiary-bg">
-              <div class="ten-percent pt-6 pb-5">
+              <div class="ten-percent pt-6 pb-5 round-corner">
                 <img src="" alt="tutors-profile-picture">
               </div>
 
