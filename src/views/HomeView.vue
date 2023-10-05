@@ -42,15 +42,15 @@ onMounted(() => {
     </div>
 
     <div class="ten-percent pt-6 pb-6 lang-btn-container flex gap-4 flex-row">
-        <button class="white-btn">English</button>
-        <button class="white-btn">Danish</button>
-        <button class="white-btn">Dutch</button>
-        <button class="white-btn">Spanish</button>
-      </div>
+      <button class="white-btn">English</button>
+      <button class="white-btn">Danish</button>
+      <button class="white-btn">Dutch</button>
+      <button class="white-btn">Spanish</button>
+    </div>
 
 
-      <!-- container for all tutors -->
-      <div class="cards-container pt-14 pb-14 flex flex-row gap-4 ten-percent primary-bg">
+      <!-- container for all cards with tutors -->
+      <div class="cards-container pt-14 pb-14 flex flex-row gap-x-4 gap-y-6 ten-percent primary-bg">
         <div v-for="tutor in tutors" :key="tutor" class="card">
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
@@ -68,7 +68,6 @@ onMounted(() => {
                   <p>Lesson price:</p>
                   <p class="font-bold">{{ tutor.tutorPrice }} EUR</p>
                 </div>
-                
               </div>
             </div>
 
@@ -92,22 +91,56 @@ onMounted(() => {
               <!-- button with call to action -->
               
             <!-- </div> -->
-            
-      
-      
           </RouterLink> 
+        </div>
+      </div>
 
+
+    <!-- chess design with what you can do on the website -->
+    <div class="flex flex-col">
+
+      <!-- Online tutor -->
+      <div class="chess secondary-bg flex pt-14 pb-14">
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
+          <img src="" alt="student-lesson">
+        </div>
+
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+          <div>
+            <h5 class="white-headline pb-2 text-3xl">Online tutor</h5>
+            <p class="white-text">You can browse through many different tutors who are ready to teach you online in a 1 on 1 conversation.</p>
           </div>
+        </div>
       </div>
-      
-      <div>
-       
 
+      <!-- Learn at any level -->
+      <div class="chess primary-bg flex pt-14 pb-14">
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+          <div>
+            <h5 class="pb-2 text-3xl">Learn at any level</h5>
+            <p>Our tutors can teach you a language no matter what skill level is.<br>They will adjust to your level and help you with tasks that fits your language level best.</p>
+          </div>
+        </div>
 
-
-          
-
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
+          <img src="" alt="tutor-teaching">
+        </div>
       </div>
+
+      <!-- Four different languages -->
+      <div class="chess secondary-bg flex pt-14 pb-14">
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
+          <img src="" alt="hello-in-languages">
+        </div>
+
+        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+          <div>
+            <h5 class="white-headline pb-2 text-3xl">Four different languages</h5>
+            <p class="white-text">We have tutors teaching four languages. We plan on expanding to more languages so you can learn even more languages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
@@ -147,6 +180,12 @@ onMounted(() => {
 .card-content {
   flex-grow: 1; /* Allow content to expand within the card */
   height: 300px;
+}
+
+
+/* chess design */
+.chess{
+  /* height: 80vh; */
 }
 
 
