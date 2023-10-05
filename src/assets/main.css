@@ -4,8 +4,9 @@
 @tailwind utilities;
 
 
+/* styling text */
 h1 {
-    font-size: 28px;
+    font-size: 30px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -20,20 +21,39 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.button {
-    background-color: var(--white-headline);
-    padding: 10px 20px;
-    color: var(--black-text);
-    border-radius: 4px;
+
+/* button styling */
+/* white button */
+.white-btn {
+    background-color: var(--white-btn);
+    padding: 10px 30px;
+    color: var(--black-headline);
+    border-radius: 20px;
     font-size: 16px;
 }
 
-.button:hover {
-    background-color: var(--white-text);
+.white-btn:hover {
+    background-color: var(--white-btn-hover);
     transition: 0.3s;
 }
 
-.tenPercent {
+/* black button */
+.black-btn {
+    background-color: var(--black-btn);
+    padding: 10px 30px;
+    color: var(--white-headline);
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.black-btn:hover {
+    background-color: var(--black-btn-hover);
+    transition: 0.3s;
+}
+
+
+/* 10% percent */
+.ten-percent {
     padding-right: 10%;
     padding-left: 10%;
 }
@@ -82,4 +102,10 @@ p {
 
 .white-text {
     color: var(--white-text);
+}
+
+
+/* rounded corners */
+.round-corner {
+    border-radius: 20px;
 }
