@@ -61,11 +61,14 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
   <header class="bg-white">
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
+
+          <!-- logo -->
           <RouterLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">TutorLingo</span>
             <img class="h-8 w-auto" :src="logo" alt="" />
           </RouterLink>
       </div>
+      
       <div class="flex lg:hidden">
         <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = true">
           <span class="sr-only">Open main menu</span>
@@ -75,15 +78,18 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
 
       <!-- nav links -->
       <PopoverGroup class="hidden lg:flex lg:gap-x-12">
-        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Find a tutor</RouterLink>
-        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Languages</RouterLink>
-        <RouterLink to="/" class="text-sm font-semibold leading-6 text-gray-900">Community</RouterLink>
+        <RouterLink to="/" class="text-sm font-semibold leading-6 black-text">Find a tutor</RouterLink>
+        <RouterLink to="/languages" class="text-sm font-semibold leading-6 black-text">Languages</RouterLink>
+        <RouterLink to="/community" class="text-sm font-semibold leading-6 black-text">Community</RouterLink>
+        <RouterLink to='/navguard' v-if="isLoggedIn">Admin page</RouterLink>
       </PopoverGroup>
 
       <!-- log in and register -->
       <div class="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-x-6">
-        <RouterLink to="/register" class="text-sm font-semibold leading-6 text-gray-900">Register</RouterLink>
-        <RouterLink to="/login" class="text-sm font-semibold leading-6 text-gray-900">Login</RouterLink>
+        <RouterLink to="/register" class="text-sm font-semibold leading-6 black-text">Register</RouterLink>
+        <RouterLink to="/login" class="text-sm font-semibold leading-6 black-text">Login</RouterLink>
+        <RouterLink to="/" class="text-sm font-semibold leading-6 black-text"><button @click="logOut" v-if="isLoggedIn">Log out</button></RouterLink>
+        
       </div>
 
     </nav>
@@ -92,6 +98,7 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
       <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
         <div class="flex items-center justify-between">
 
+          <!-- logo -->
           <RouterLink to="/" class="-m-1.5 p-1.5">
             <span class="sr-only">TutorLingo</span>
             <img class="h-8 w-auto" :src="logo" alt="" />
@@ -108,15 +115,17 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
 
             <!-- nav links -->
             <div class="space-y-2 py-6">
-              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Find a teacher</RouterLink>
-              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Group class</RouterLink>
-              <RouterLink to="/" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Community</RouterLink>
+              <RouterLink to="/" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Find a teacher</RouterLink>
+              <RouterLink to="/languages" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Languages</RouterLink>
+              <RouterLink to="/community" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Community</RouterLink>
+              <RouterLink to='/navguard' v-if="isLoggedIn">Admin page</RouterLink>
             </div>
 
             <!-- log in and register -->
             <div class="py-6">
-              <RouterLink to="/register" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Register</RouterLink>
-              <RouterLink to="/login" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Login</RouterLink>
+              <RouterLink to="/register" class="-mx-3 block round-corner px-3 py-2.5 text-base font-semibold leading-7 black-text">Register</RouterLink>
+              <RouterLink to="/login" class="-mx-3 block round-corner px-3 py-2.5 text-base font-semibold leading-7 black-text">Login</RouterLink>
+              <RouterLink to="/login" class="-mx-3 block round-corner px-3 py-2.5 text-base font-semibold leading-7 black-text"><button @click="logOut" v-if="isLoggedIn">Log out</button></RouterLink>
             </div>
           </div>
         </div>
@@ -130,12 +139,14 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
 
       <!-- left side of footer -->
       <div class="flex flex-col">
-        <div class="pb-2">
-          <img :src="logo" alt="company logo" style="height: 25px;">
+        <div class="left-footer">
+          <div class="pb-2">
+            <img :src="logo" alt="company logo" style="height: 25px;">
+          </div>
+          <p>Solskinsvej 45, Esbjerg 6700</p>
+          <p>+45 49 88 08 94</p>
         </div>
-        <p>Solskinsvej 45, Esbjerg 6700</p>
-        <p>+45 49 88 08 94</p>
-
+        
         <!-- social media logos -->
         <div class="SoMe-logos flex pt-3 gap-4">
           <a href="" target="_blank">
@@ -153,9 +164,9 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
       <div>
         <h5 class="pb-2">Information</h5>
         <ul>
-          <RouterLink to="/"><li>Contact us</li></RouterLink>
-          <RouterLink to="/"><li>About us</li></RouterLink>
-          <RouterLink to="/"><li>FAQ</li></RouterLink>
+          <RouterLink to="/contact"><li>Contact us</li></RouterLink>
+          <RouterLink to="/about"><li>About us</li></RouterLink>
+          <RouterLink to="/faq"><li>FAQ</li></RouterLink>
         </ul>
       </div>
 
@@ -163,10 +174,9 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
       <div>
         <h5 class="pb-2">Languages</h5>
         <ul>
-          <RouterLink to="/"><li>Danish</li></RouterLink>
-          <RouterLink to="/"><li>Dutch</li></RouterLink>
-          <RouterLink to="/"><li>English</li></RouterLink>
-          <RouterLink to="/"><li>Spanish</li></RouterLink>
+          <RouterLink to="/danish"><li>Danish</li></RouterLink>
+          <RouterLink to="/dutch"><li>Dutch</li></RouterLink>
+          <RouterLink to="/english"><li>English</li></RouterLink>
         </ul>
       </div>
     </div>
@@ -178,8 +188,41 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
 </template>
 
 <style scoped>
+/* navigation bar */
 header {
-  /* position: fixed; */
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav a.router-link-exact-active  {
+  color: var(--black-headline);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.router-link-active {
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--black-headline);
+}
+
+.block {
+  color: var(--black-text);
+}
+
+.block:hover {
+  background-color: var(--primary-color);
+}
+
+nav a:hover  {
+  color: var(--black-hover);
+}
+
+
+/* footer */
+.left-footer {
+  color: var(--black-extra-light);
 }
 
 footer li:hover {
@@ -187,7 +230,7 @@ footer li:hover {
 }
 
 .copyright {
-  background-color: #ecf2e4;
+  background-color: var(--extra-white);
 }
 
 

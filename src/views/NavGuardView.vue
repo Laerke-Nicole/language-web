@@ -1,17 +1,16 @@
 <template>
 
-<div v-if="isLoggedIn && email.value === 'admin@admin.com' && password.value === '123456'">
+<!-- <div v-if="isLoggedIn && email.value === 'admin@admin.com' && password.value === '123456'">
   Så vises admin side
 </div>
 
 <div v-else="isloggedIn">
   Then show the normal page
-</div>
+</div> -->
 
 
-    <div class="parameters-container">
-
-        <div class="flex flex-col justify-center gap-2">
+    <div class="parameters-container pt-20">
+        <div class="flex flex-col justify-center gap-2 pt-14">
             <h1>Add tutor information</h1>
 
             <input type="text" placeholder="Tutors name" v-model="AddTutorData.tutorName" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">

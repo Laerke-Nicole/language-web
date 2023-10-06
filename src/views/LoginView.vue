@@ -1,46 +1,30 @@
 <template>
+    <div class="pt-20 pb-20 secondary-bg">
+        <div class="mt-14 max-w-md m-auto relative flex flex-col p-12 round-corner text-black primary-bg">
+            <h3 class="text-2xl font-bold mb-2 black-headline text-center">Login</h3>
 
-<div class="max-w-md relative flex flex-col p-4 rounded-md text-black bg-white">
-      <div class="text-2xl font-bold mb-2 text-[#1e0e4b] text-center">Log in</div>
-      <form class="flex flex-col gap-3">
-        <div class="block relative"> 
-          <label for="email" class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Email</label>
-          <input v-model="email" type="text" id="email" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2  ring-gray-900 outline-0">
-          
-          </div>
-          <div class="block relative"> 
+            <div class="flex flex-col gap-3">
+                <!-- email -->
+                <label for="email" class="block black-text cursor-text text-sm font-normal">Email</label>
+                <input type="text" v-model="email" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4"/>
+                
+                <!-- password -->
+                <label for="password" class="block black-text cursor-text text-sm font-normal">Password</label>
+                <input type="password" v-model="password" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0"/>
+                <p v-if="errMsg">{{ errMsg }}</p>
 
-            <!-- password input -->
-          <label for="password" class="block text-gray-600 cursor-text text-sm leading-[140%] font-normal mb-2">Password</label>
-          <input v-model="password" type="password" id="password" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-          
-          <!-- error message -->
-          <p v-if="errMsg">{{ errMsg }}</p>
-          </div>
-
-          <!-- log in button -->
-          <button @click="logIn" type="submit" class="bg-[#7747ff] w-max m-auto px-6 py-2 rounded text-white text-sm font-normal">Log in</button>
-
-      </form>
-    <div class="text-sm text-center mt-[1.6rem]">Don't have an account yet? <RouterLink to="/register" class="text-sm text-[#7747ff] underline">Register an account</RouterLink></div>
-  </div>
-
-
-
-
-    <div>
-        <h1>Login</h1>
-        Username: <input type="text" v-model="email" />
-        Password: <input type="password" v-model="password" />
-        <p v-if="errMsg">{{ errMsg }}</p>
-        <button @click="logIn">Login</button>
+                <button @click="logIn" class="black-btn m-auto mt-3 mb-5">Login</button>
+            </div>
+        </div>
     </div>
+
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { auth } from '../firebase.js'
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import { onMounted } from 'vue'
 
 import router from '../router'
 

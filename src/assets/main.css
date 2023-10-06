@@ -86,6 +86,10 @@ p {
     background-color: var(--tertiary-color);
 }
 
+.white-bg {
+    background-color: var(--white-headline);
+}
+
 /* classes for text colors  */
 .black-headline {
     color: var(--black-headline);

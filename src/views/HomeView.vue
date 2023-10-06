@@ -28,7 +28,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 </script>
 
 <template>
-  <main>
+  <main class="pt-20">
     <!-- <div v-if="isLoggedIn">Logged in</div>
 
     <div v-else>Ikke logged ind</div> -->
@@ -52,11 +52,10 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       <p>Our online platform allows you to choose from a wide range of Dutch classes <br> and schedule a lesson in your desired language.</p>
     </div>
 
-    <div class="ten-percent pt-6 pb-6 lang-btn-container flex gap-4 flex-row">
-      <button class="white-btn">English</button>
-      <button class="white-btn">Danish</button>
-      <button class="white-btn">Dutch</button>
-      <button class="white-btn">Spanish</button>
+    <div v-for="language in languages" :key="language" class="ten-percent pt-6 pb-6 lang-btn-container flex gap-4 flex-row">
+      <!-- <button class="white-btn">{{language.languages}}</button> -->
+      <!-- <button class="white-btn">Dutch</button>
+      <button class="white-btn">English</button> -->
     </div>
 
 
@@ -81,27 +80,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
                 </div>
               </div>
             </div>
-
-            <!-- box with tutor info -->
-            <!-- <div class="rounded flex flex-row pt-12 pb-12"> -->
-
-              <!-- tutor profile picture -->
-              <!-- <div class="ten-percent flex flex-col justify-center"> -->
-                <!-- <img :src="tutor.tutorImage" alt="tutor image" /> -->
-                <!-- <div class="p-10 secondary-bg"></div>
-              </div> -->
-
-              <!-- tutor info -->
-              <!-- <div class="flex flex-col gap-3 w-4/12">
-                <p>{{ tutor.tutorName }}</p>
-                <p>{{ tutor.tutorSpeaks }}</p>
-                <p>{{ tutor.tutorDescription }}</p>
-                <p class="pt-4">{{ tutor.tutorPrice }} EUR</p>
-              </div> -->
-
-              <!-- button with call to action -->
-              
-            <!-- </div> -->
           </RouterLink> 
         </div>
       </div>
@@ -138,7 +116,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
         </div>
       </div>
 
-      <!-- Four different languages -->
+      <!-- three different languages -->
       <div class="chess secondary-bg flex">
         <div class="w-6/12 flex flex-col items-center justify-center">
           <img :src="chessThree" alt="hello-in-languages">
@@ -146,8 +124,8 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
         <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
           <div>
-            <h5 class="white-headline pb-2 text-3xl">Four different languages</h5>
-            <p class="white-text">We have tutors teaching four languages. We plan on expanding to more languages so you can learn even more languages.</p>
+            <h5 class="white-headline pb-2 text-3xl">Three different languages</h5>
+            <p class="white-text">We have tutors teaching three languages. We plan on expanding to more languages so you can learn even more languages.</p>
           </div>
         </div>
       </div>
