@@ -46,6 +46,9 @@ import {
 const mobileMenuOpen = ref(false)
 
 
+// logo img
+let logo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/Logo%2Flogo.svg?alt=media&token=2ba1243a-6bd0-49a9-b44b-7f230042e2de&_gl=1*lhh7kp*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyNTYwNC45NC4xLjE2OTY2MjYxMTAuMjcuMC4w')
+
 // social media logos
 let facebookLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Ffacebook-logo.svg?alt=media&token=53ea56e6-254c-476c-8d83-479bfcd0a278&_gl=1*1174qof*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE5MDEuNC4wLjA.')
 let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Finstagram-logo.svg?alt=media&token=565b5784-791b-4a56-ad0b-e56c8d0f202d&_gl=1*rsasuu*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE5MjQuNjAuMC4w')
@@ -59,8 +62,8 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
     <nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
       <div class="flex lg:flex-1">
           <RouterLink to="/" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <span class="sr-only">TutorLingo</span>
+            <img class="h-8 w-auto" :src="logo" alt="" />
           </RouterLink>
       </div>
       <div class="flex lg:hidden">
@@ -90,8 +93,8 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
         <div class="flex items-center justify-between">
 
           <RouterLink to="/" class="-m-1.5 p-1.5">
-            <span class="sr-only">Your Company</span>
-            <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />
+            <span class="sr-only">TutorLingo</span>
+            <img class="h-8 w-auto" :src="logo" alt="" />
           </RouterLink>
 
           <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700" @click="mobileMenuOpen = false">
@@ -127,10 +130,9 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
 
       <!-- left side of footer -->
       <div class="flex flex-col">
-        <div>
-          <img src="" alt="company logo" height="60px">
+        <div class="pb-2">
+          <img :src="logo" alt="company logo" style="height: 25px;">
         </div>
-        <h5 class="pt-2 pb-2 ">Name of company</h5>
         <p>Solskinsvej 45, Esbjerg 6700</p>
         <p>+45 49 88 08 94</p>
 
@@ -170,7 +172,7 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
     </div>
     
     <div class="copyright flex items-center h-12 ten-percent">
-      <p class="text-xs">© 2023 NAME OF COMPANY</p>
+      <p class="text-xs">© 2023 TutorLingo</p>
     </div>
   </footer>
 </template>
