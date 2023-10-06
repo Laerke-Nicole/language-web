@@ -56,7 +56,7 @@ onMounted(() => {
 
             <div class="card-content flex flex-col round-corner tertiary-bg">
               <div class="ten-percent pt-6 pb-5 round-corner">
-                <img src="" alt="tutors-profile-picture">
+                <img src="tutor.tutorImg" alt="tutors-profile-picture">
               </div>
 
               <div class="flex flex-col ten-percent">
