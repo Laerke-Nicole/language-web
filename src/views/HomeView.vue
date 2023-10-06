@@ -1,6 +1,7 @@
 <script setup>
 import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
+import { ref } from 'vue'
 
 
 const { tutors, getTutorsData } = useTutors();
@@ -14,6 +15,16 @@ onMounted(() => {
   window.scrollTo(0, 0)
 })
 
+
+// front page image
+let frontPageImg = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/Frontpage%20img%2Ffront-page-img.jpg?alt=media&token=59e6569c-4026-4f62-9201-2a4f85e981cb&_gl=1*1dwwx47*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjMyMjQuNTguMC4w')
+
+// chess images
+let chessOne = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/Chess%20images%2Fextra-img-one.jpg?alt=media&token=a2c103d2-46e0-4fd2-af8d-a6db7359889e&_gl=1*1umk082*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjI5MjUuNjAuMC4w')
+let chessTwo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/Chess%20images%2Fextra-img-two.jpg?alt=media&token=fc90cdc7-3451-429b-8f25-e6f9e2916621&_gl=1*1dq2v30*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjI5NjguMTcuMC4w')
+let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/Chess%20images%2Fextra-img-three.jpg?alt=media&token=76a803bc-bd8a-4296-9248-5dc35af36281&_gl=1*k8jcfd*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjI5NzYuOS4wLjA.')
+
+
 </script>
 
 <template>
@@ -26,12 +37,12 @@ onMounted(() => {
       <div class="frontpage-left ten-percent pt-20 pb-20 justify-centercontent-center">
         <h1 class="pb-2">Learn a language today</h1>
         <p class="pb-6">We have professional tutors from different countries ready to teach you your desired language with 1 on 1 talks with a tutor.</p>
-        <button class="black-btn">Learn more</button>
+        <RouterLink to="/"><button class="black-btn">Learn more</button></RouterLink>
       </div>
 
       <div class="frontpage-right ten-percent pt-20 pb-20 justify-center content-center">
         <div class="round-corner">
-          <img src="" alt="frontpage image">
+          <img :src="frontPageImg" alt="frontpage image">
         </div>
       </div>
     </div>
@@ -56,7 +67,7 @@ onMounted(() => {
 
             <div class="card-content flex flex-col round-corner tertiary-bg">
               <div class="ten-percent pt-6 pb-5 round-corner">
-                <img src="tutor.tutorImg" alt="tutors-profile-picture">
+                <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
               </div>
 
               <div class="flex flex-col ten-percent">
@@ -100,9 +111,9 @@ onMounted(() => {
     <div class="flex flex-col">
 
       <!-- Online tutor -->
-      <div class="chess secondary-bg flex pt-14 pb-14">
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
-          <img src="" alt="student-lesson">
+      <div class="chess secondary-bg flex">
+        <div class="w-6/12 flex flex-col items-center justify-center">
+          <img :src="chessOne" alt="student-lesson">
         </div>
 
         <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
@@ -114,7 +125,7 @@ onMounted(() => {
       </div>
 
       <!-- Learn at any level -->
-      <div class="chess primary-bg flex pt-14 pb-14">
+      <div class="chess primary-bg flex">
         <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
           <div>
             <h5 class="pb-2 text-3xl">Learn at any level</h5>
@@ -122,15 +133,15 @@ onMounted(() => {
           </div>
         </div>
 
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
-          <img src="" alt="tutor-teaching">
+        <div class="w-6/12 flex flex-col items-center justify-center">
+          <img :src="chessTwo" alt="tutor-teaching">
         </div>
       </div>
 
       <!-- Four different languages -->
-      <div class="chess secondary-bg flex pt-14 pb-14">
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center">
-          <img src="" alt="hello-in-languages">
+      <div class="chess secondary-bg flex">
+        <div class="w-6/12 flex flex-col items-center justify-center">
+          <img :src="chessThree" alt="hello-in-languages">
         </div>
 
         <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">

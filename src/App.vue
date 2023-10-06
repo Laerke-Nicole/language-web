@@ -1,12 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-
 import { onMounted, ref } from 'vue'
-
 import { auth } from './firebase.js'
-
 import { signOut, onAuthStateChanged } from 'firebase/auth'
-
 import router from './router'
 
 let isLoggedIn = ref(false)
@@ -51,8 +47,8 @@ const mobileMenuOpen = ref(false)
 
 
 // social media logos
-let facebookLogo = 'https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Ffacebook-logo.svg?alt=media&token=53ea56e6-254c-476c-8d83-479bfcd0a278&_gl=1*1jb6kjf*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE0MzEuMTcuMC4w'
-let instagramLogo = 'https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Finstagram-logo.svg?alt=media&token=565b5784-791b-4a56-ad0b-e56c8d0f202d&_gl=1*19lfray*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE0ODQuNjAuMC4w'
+let facebookLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Ffacebook-logo.svg?alt=media&token=53ea56e6-254c-476c-8d83-479bfcd0a278&_gl=1*1174qof*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE5MDEuNC4wLjA.')
+let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Finstagram-logo.svg?alt=media&token=565b5784-791b-4a56-ad0b-e56c8d0f202d&_gl=1*rsasuu*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE5MjQuNjAuMC4w')
 
 </script>
 
