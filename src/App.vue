@@ -49,6 +49,11 @@ import {
 
 const mobileMenuOpen = ref(false)
 
+
+// social media logos
+let facebookLogo = 'https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Ffacebook-logo.svg?alt=media&token=53ea56e6-254c-476c-8d83-479bfcd0a278&_gl=1*1jb6kjf*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE0MzEuMTcuMC4w'
+let instagramLogo = 'https://firebasestorage.googleapis.com/v0/b/language-booking-system.appspot.com/o/SoMe%20logos%2Finstagram-logo.svg?alt=media&token=565b5784-791b-4a56-ad0b-e56c8d0f202d&_gl=1*19lfray*_ga*MTk3MzI2MTY1LjE2ODIwNzA2MjE.*_ga_CW55HF8NVT*MTY5NjYyMTMxOS45My4xLjE2OTY2MjE0ODQuNjAuMC4w'
+
 </script>
 
 <template>
@@ -136,13 +141,15 @@ const mobileMenuOpen = ref(false)
         <!-- social media logos -->
         <div class="SoMe-logos flex pt-3 gap-4">
           <a href="" target="_blank">
-            <img src="" alt="Facebook-logo" height="40px">
+            <img :src="facebookLogo" alt="Facebook-logo" height="40px">
           </a>
           <a href="" target="_blank">
-            <img src="" alt="Instagram-logo" height="40px">
+            <img :src="instagramLogo" alt="Instagram-logo" height="40px">
           </a>
         </div>
       </div>
+
+      
 
       <!-- middle of footer -->
       <div>
@@ -165,7 +172,10 @@ const mobileMenuOpen = ref(false)
         </ul>
       </div>
     </div>
-      
+    
+    <div class="copyright flex items-center h-12 ten-percent">
+      <p class="text-xs">© 2023 NAME OF COMPANY</p>
+    </div>
   </footer>
 </template>
 
@@ -177,4 +187,10 @@ header {
 footer li:hover {
   color: var(--black-hover);
 }
+
+.copyright {
+  background-color: #ecf2e4;
+}
+
+
 </style>
