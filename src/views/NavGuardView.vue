@@ -28,6 +28,9 @@
             <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
             <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
             <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="Tutors lessons" v-model="AddTutorData.tutorLessons" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="Tutors students" v-model="AddTutorData.tutorStudents" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="Tutors attendence" v-model="AddTutorData.tutorAttendance" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
             <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImage" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
         </div>
 
@@ -42,23 +45,33 @@
                 <!-- list of printed tutor information -->
                 <div class="flex flex-col gap-2">
                   <h5 class="text-xl">
-                    TutorName: {{ tutor.tutorName }}
+                    Tutor name: {{ tutor.tutorName }}
                   </h5>
                   <p>
-                    TutorSpeaks: {{ tutor.tutorSpeaks }}
+                    Tutor speaks: {{ tutor.tutorSpeaks }}
                   </p>
                   <p>
-                    TutorPrice: {{ tutor.tutorPrice }}
+                    Tutor price: {{ tutor.tutorPrice }}
                   </p>
                   <p>
-                    TutorAbout: {{ tutor.tutorAbout }}
+                    Tutor about: {{ tutor.tutorAbout }}
                   </p>
                   <p>
-                    TutorTeachingStyle: {{ tutor.tutorTeachingStyle }}
+                    Tutor teaching style: {{ tutor.tutorTeachingStyle }}
                   </p>
                   <p>
-                    TutorImage: {{ tutor.tutorImage }}
+                    Tutor lessons: {{ tutor.tutorLessons }}
                   </p>
+                  <p>
+                    Tutor students: {{ tutor.tutorStudents }}
+                  </p>
+                  <p>
+                    Tutor attendence: {{ tutor.tutorAttendance }}
+                  </p>
+                  <p>
+                    Tutor image:
+                  </p>
+                  <img :src="tutor.tutorImage" alt="tutor image" class="w-20 h-20">
                 </div>
                 
 
@@ -68,7 +81,7 @@
                   <!-- modal with editing -->
                   <!-- edit tutor button -->
                   <button @click="showModal" type="button" class="black-btn flex">Edit tutor</button>
-                  <Modal :size="size" v-if="isShowModal" @close="closeModal">
+                  <Modal :size="size" v-if="isShowModal" @close="closeModal" class="mt-20">
                     <template #header>
                       <div class="flex items-center text-lg">
                         Edit tutor information
@@ -77,11 +90,44 @@
                     <template #body>
                       
                       <!-- edit options list -->
+                      <p>Name</p>
                       <p>
                         <input type="text" placeholder="Edit tutor name" v-model="tutor.tutorName" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
                       </p>
+
+                      <p>Speaks</p>
                       <p>
-                          <input type="text" placeholder="Edit tutors languages" v-model="tutor.tutorSpeaks" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                        <input type="text" placeholder="Edit tutors languages" v-model="tutor.tutorSpeaks" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>Price</p>
+                      <p>
+                        <input type="text" placeholder="Edit tutor price" v-model="tutor.tutorPrice" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>About</p>
+                      <p>
+                        <input type="text" placeholder="Edit tutor about" v-model="tutor.tutorAbout" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>Teaching style</p>
+                      <p>
+                        <input type="text" placeholder="Edit tutor teaching style" v-model="tutor.tutorTeachingStyle" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>Students</p>
+                      <p>
+                        <input type="text" placeholder="Edit tutor students" v-model="tutor.tutorStudents" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>Attendence</p>
+                      <p>
+                        <input type="text" placeholder="Edit tutor attendence" v-model="tutor.tutorAttendance" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+
+                      <p>Image</p>
+                      <p>
+                        <img :src="tutor.tutorImage" alt="tutor image" class="w-20 h-20">
                       </p>
                       
                     </template>
@@ -155,10 +201,9 @@ onMounted(() => {
 
 <style scoped>
 .parameters-container {
-    padding: 0 10%;
-    padding-top: 80px;
+  padding: 0 10%;
+  padding-top: 80px;
 }
-
 
 
 

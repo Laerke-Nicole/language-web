@@ -17,6 +17,9 @@ const useTutors = () => {
         tutorAbout: "",
         tutorTeachingStyle: "",
         tutorImg: "",
+        tutorLessons: "",
+        tutorStudents: "",
+        tutorAttendance: "",
     })
 
 
@@ -27,6 +30,9 @@ const useTutors = () => {
         tutorAbout: "",
         tutorTeachingStyle: "",
         tutorImg: "",
+        tutorLessons: "",
+        tutorStudents: "",
+        tutorAttendance: "",
     })
 
     // store documents
@@ -45,7 +51,7 @@ const useTutors = () => {
         console.log("test", tutors)
     }
 
-    // accept the button that deletes that adds item
+    // accept the button that deletes that added item
     const firebaseDeleteSingleItem = async (id) => {
         await deleteDoc(doc(db, "tutors", id));
         console.log("is deleted", id);
@@ -63,6 +69,9 @@ const useTutors = () => {
                 tutorAbout: AddTutorData.value.tutorAbout,
                 tutorTeachingStyle: AddTutorData.value.tutorTeachingStyle,
                 tutorImg: AddTutorData.value.tutorImg,
+                tutorLessons: AddTutorData.value.tutorLessons,
+                tutorStudents: AddTutorData.value.tutorStudents,
+                tutorAttendance: AddTutorData.value.tutorAttendance,
             }
         )
         .then({
@@ -72,6 +81,9 @@ const useTutors = () => {
             tutorAbout: AddTutorData.value.tutorAbout = '',
             tutorTeachingStyle: AddTutorData.value.tutorTeachingStyle = '',
             tutorImg: AddTutorData.value.tutorImg = '',
+            tutorLessons: AddTutorData.value.tutorLessons = '',
+            tutorStudents: AddTutorData.value.tutorStudents = '',
+            tutorAttendance: AddTutorData.value.tutorAttendance = '',
         })
 
         console.log("is added")
@@ -86,6 +98,9 @@ const useTutors = () => {
             tutorAbout: tutors.value.find(tutor => tutor.id === tutor.id).tutorAbout,
             tutorTeachingStyle: tutors.value.find(tutor => tutor.id === tutor.id).tutorTeachingStyle,
             tutorImg: tutors.value.find(tutor => tutor.id === tutor.id).tutorImg,
+            tutorLessons: tutors.value.find(tutor => tutor.id === tutor.id).tutorLessons,
+            tutorStudents: tutors.value.find(tutor => tutor.id === tutor.id).tutorStudents,
+            tutorAttendance: tutors.value.find(tutor => tutor.id === tutor.id).tutorAttendance,
         }).then(() => {
             UpdateTutorData.value.tutorName = ''
             UpdateTutorData.value.tutorSpeaks = ''
@@ -93,11 +108,12 @@ const useTutors = () => {
             UpdateTutorData.value.tutorAbout = ''
             UpdateTutorData.value.tutorTeachingStyle = ''
             UpdateTutorData.value.tutorImg = ''
+            UpdateTutorData.value.tutorLessons = ''
+            UpdateTutorData.value.tutorStudents = ''
+            UpdateTutorData.value.tutorAttendance = ''
         })
     }
 
-
-    
 
     return {
         getTutorsData,

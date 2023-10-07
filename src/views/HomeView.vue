@@ -75,7 +75,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
                 <hr class="mt-9 mb-4">
                 <div class="flex flex-col">
-                  <p>Lesson price:</p>
+                  <p>Price per lesson:</p>
                   <p class="font-bold">{{ tutor.tutorPrice }} EUR</p>
                 </div>
               </div>
