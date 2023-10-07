@@ -33,7 +33,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
     <div v-else>Ikke logged ind</div> -->
 
-    <div class="flex">
+    <div class="flex tertiary-bg">
       <div class="frontpage-left ten-percent pt-20 pb-20 justify-centercontent-center">
         <h1 class="pb-2">Learn a language today</h1>
         <p class="pb-6">We have professional tutors from different countries ready to teach you your desired language with 1 on 1 talks with a tutor.</p>

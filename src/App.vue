@@ -134,7 +134,7 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
   </header>
   <RouterView />
 
-  <footer>
+  <footer class="tertiary-bg">
     <div class="flex flex-row ten-percent pt-14 pb-14 justify-evenly">
 
       <!-- left side of footer -->

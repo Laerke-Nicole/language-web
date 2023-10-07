@@ -22,7 +22,7 @@
 
 
   /* button colors */
-  --white-btn: #f2f2f2;
+  --white-btn: #f8ffef;
   --white-btn-hover: #dadada;
   --black-btn: #343434;
   --black-btn-hover: #474747;
@@ -36,6 +36,6 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tertiary-color);
+  background-color: var(--black-extra-light);
 }
 

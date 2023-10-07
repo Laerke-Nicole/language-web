@@ -13,7 +13,6 @@ const useTutors = () => {
     const AddTutorData = ref({
         tutorName: "",
         tutorSpeaks: "",
-        tutorDescription: "",
         tutorPrice: "",
         tutorAbout: "",
         tutorTeachingStyle: "",
@@ -24,7 +23,6 @@ const useTutors = () => {
     const UpdateTutorData = ref({
         tutorName: "",
         tutorSpeaks: "",
-        tutorDescription: "",
         tutorPrice: "",
         tutorAbout: "",
         tutorTeachingStyle: "",
@@ -61,7 +59,6 @@ const useTutors = () => {
             {
                 tutorName: AddTutorData.value.tutorName,
                 tutorSpeaks: AddTutorData.value.tutorSpeaks,
-                tutorDescription: AddTutorData.value.tutorDescription,
                 tutorPrice: AddTutorData.value.tutorPrice,
                 tutorAbout: AddTutorData.value.tutorAbout,
                 tutorTeachingStyle: AddTutorData.value.tutorTeachingStyle,
@@ -71,7 +68,6 @@ const useTutors = () => {
         .then({
             tutorName: AddTutorData.value.tutorName = '',
             tutorSpeaks: AddTutorData.value.tutorSpeaks = '',
-            tutorDescription: AddTutorData.value.tutorDescription = '',
             tutorPrice: AddTutorData.value.tutorPrice = '',
             tutorAbout: AddTutorData.value.tutorAbout = '',
             tutorTeachingStyle: AddTutorData.value.tutorTeachingStyle = '',
@@ -86,7 +82,6 @@ const useTutors = () => {
         await updateDoc(doc(tutorDataRef, tutor), {
             tutorName: tutors.value.find(tutor => tutor.id === tutor.id).tutorName,
             tutorSpeaks: tutors.value.find(tutor => tutor.id === tutor.id).tutorSpeaks,
-            tutorDescription: tutors.value.find(tutor => tutor.id === tutor.id).tutorDescription,
             tutorPrice: tutors.value.find(tutor => tutor.id === tutor.id).tutorPrice,
             tutorAbout: tutors.value.find(tutor => tutor.id === tutor.id).tutorAbout,
             tutorTeachingStyle: tutors.value.find(tutor => tutor.id === tutor.id).tutorTeachingStyle,
@@ -94,7 +89,6 @@ const useTutors = () => {
         }).then(() => {
             UpdateTutorData.value.tutorName = ''
             UpdateTutorData.value.tutorSpeaks = ''
-            UpdateTutorData.value.tutorDescription = ''
             UpdateTutorData.value.tutorPrice = ''
             UpdateTutorData.value.tutorAbout = ''
             UpdateTutorData.value.tutorTeachingStyle = ''

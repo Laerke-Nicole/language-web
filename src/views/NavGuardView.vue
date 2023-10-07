@@ -11,104 +11,111 @@
 
     <div class="parameters-container pt-20">
         <div class="flex flex-col justify-center gap-2 pt-14">
-            <h1>Add tutor information</h1>
+            <h1 class="pb-2 white-headline">Add tutor information</h1>
 
-            <input type="text" placeholder="Tutors name" v-model="AddTutorData.tutorName" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="Tutor speaks" v-model="AddTutorData.tutorSpeaks" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="Tutor description" v-model="AddTutorData.tutorDescription" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-            <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImage" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
+            <input type="text" placeholder="Tutors name" v-model="AddTutorData.tutorName" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            
+            <!-- language they speak -->
+            <div>
+              <p class="white-text">Select a language in the dropdown: </p>
+            </div>
+            <select v-model="AddTutorData.tutorSpeaks" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+              <option v-for="language in languages" :key="language" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                <p>{{ language.language }}</p>
+              </option> 
+            </select>
+
+            <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImage" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
         </div>
 
-        <button class="btn-add button" @click="firebaseAddSingleItem()">Add tutor</button>
+        <!-- add tutor button -->
+        <button class="black-btn mb-20" @click="firebaseAddSingleItem()">Add tutor</button>
 
-        <hr>
 
+        <!-- printed tutor information in a loop -->
         <div v-for="tutor in tutors" :key="tutor">
-        <p>
-            TutorID: {{ tutor.id }}
-        </p>
-        <p>
-            TutorName: {{ tutor.tutorName }}
-        </p>
-        <p>
-            TutorSpeaks: {{ tutor.tutorSpeaks }}
-        </p>
-        <p>
-            TutorDescription: {{ tutor.tutorDescription }}
-        </p>
-        <p>
-            TutorPrice: {{ tutor.tutorPrice }}
-        </p>
-        <p>
-            TutorAbout: {{ tutor.tutorAbout }}
-        </p>
-        <p>
-            TutorTeachingStyle: {{ tutor.tutorTeachingStyle }}
-        </p>
-        <p>
-            TutorImage: {{ tutor.tutorImage }}
-        </p>
-
-        <button class="btn-delete" @click="firebaseDeleteSingleItem(tutor.id)">Delete tutor</button>
-
-        <p>
-            <input type="text" placeholder="Edit tutor name" v-model="tutor.tutorName" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-        </p>
-        <p>
-            <input type="text" placeholder="Edit tutors languages" v-model="tutor.tutorSpeaks" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-        </p>
+          <div class="card-content flex flex-col round-corner white-bg pt-12 pb-12 mb-11">
+              <div class="flex flex-col ten-percent">
+                <!-- list of printed tutor information -->
+                <div class="flex flex-col gap-2">
+                  <h5 class="text-xl">
+                    TutorName: {{ tutor.tutorName }}
+                  </h5>
+                  <p>
+                    TutorSpeaks: {{ tutor.tutorSpeaks }}
+                  </p>
+                  <p>
+                    TutorPrice: {{ tutor.tutorPrice }}
+                  </p>
+                  <p>
+                    TutorAbout: {{ tutor.tutorAbout }}
+                  </p>
+                  <p>
+                    TutorTeachingStyle: {{ tutor.tutorTeachingStyle }}
+                  </p>
+                  <p>
+                    TutorImage: {{ tutor.tutorImage }}
+                  </p>
+                </div>
+                
 
 
-        
-        <!-- modal with editing -->
-        <button @click="showModal" type="button" class="mt-5 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-        Edit tutor
-    </button>
-    <Modal :size="size" v-if="isShowModal" @close="closeModal">
-      <template #header>
-        <div class="flex items-center text-lg">
-          Edit tutor information
+                <!-- edit and delete tutor buttons -->
+                <div class="flex flex-row pt-10 gap-4">
+                  <!-- modal with editing -->
+                  <!-- edit tutor button -->
+                  <button @click="showModal" type="button" class="black-btn flex">Edit tutor</button>
+                  <Modal :size="size" v-if="isShowModal" @close="closeModal">
+                    <template #header>
+                      <div class="flex items-center text-lg">
+                        Edit tutor information
+                      </div>
+                    </template>
+                    <template #body>
+                      
+                      <!-- edit options list -->
+                      <p>
+                        <input type="text" placeholder="Edit tutor name" v-model="tutor.tutorName" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+                      <p>
+                          <input type="text" placeholder="Edit tutors languages" v-model="tutor.tutorSpeaks" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                      </p>
+                      
+                    </template>
+                    <template #footer>
+                      <div class="flex justify-between">
+
+                        <!-- close modal button -->
+                        <button @click="closeModal" type="button" class="underline">
+                          Cancel
+                        </button>
+
+                        <!-- complete edit button -->
+                        <button class="btn-edit black-btn" @click="firebaseUpdateSingleItem(tutor.id); closeModal();">Edit tutor information</button>
+                        
+                      </div>
+                    </template>
+                  </Modal>
+
+                  <!-- Delete tutor button -->
+                  <button class="btn-delete black-btn" @click="firebaseDeleteSingleItem(tutor.id)">Delete tutor</button>
+
+                </div>
+              </div>
+            </div>
         </div>
-      </template>
-      <template #body>
-        <p>
-            <input type="text" placeholder="Edit tutor name" v-model="tutor.tutorName" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-        </p>
-        <p>
-            <input type="text" placeholder="Edit tutors languages" v-model="tutor.tutorSpeaks" class="rounded border border-gray-200 text-sm w-full font-normal leading-[18px] text-black tracking-[0px] appearance-none block h-11 m-0 p-[11px] focus:ring-2 ring-offset-2 ring-gray-900 outline-0">
-        </p>
-
-      </template>
-      <template #footer>
-        <div class="flex justify-between">
-          <button @click="closeModal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
-            Cancel
-          </button>
-          <button @click="closeModal" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Edit tutor
-          </button>
-        </div>
-      </template>
-    </Modal>
-
-
-        <button class="btn-edit button" @click="firebaseUpdateSingleItem(tutor.id)">Edit tutor</button>
-        <hr>
-
-        </div>
-
     </div>
 
 </template>
 
 
 <script setup>
-
 import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
+import languages from '../modules/useLanguages.js'
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items

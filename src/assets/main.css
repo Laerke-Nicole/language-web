@@ -90,6 +90,10 @@ p {
     background-color: var(--white-headline);
 }
 
+.white-bg-second {
+    background-color: var(--extra-white);
+}
+
 /* classes for text colors  */
 .black-headline {
     color: var(--black-headline);
