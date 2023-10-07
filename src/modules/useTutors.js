@@ -48,7 +48,7 @@ const useTutors = () => {
                 }
             })
         })
-        console.log("test", tutors)
+        console.log("document", tutors)
     }
 
     // accept the button that deletes that added item

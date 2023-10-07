@@ -66,7 +66,7 @@
                     Tutor students: {{ tutor.tutorStudents }}
                   </p>
                   <p>
-                    Tutor attendence: {{ tutor.tutorAttendance }}
+                    Tutor attendence: {{ tutor.tutorAttendance }} %
                   </p>
                   <p>
                     Tutor image:
@@ -192,6 +192,7 @@ function showModal() {
   isShowModal.value = true
 }
 
+// scroll to top when opening page
 onMounted(() => {
   window.scrollTo(0, 0)
 })

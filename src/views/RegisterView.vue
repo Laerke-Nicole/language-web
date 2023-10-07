@@ -26,6 +26,7 @@
 </template>
 
 <script setup>
+// scroll to top when opening page
 onMounted(() => {
   window.scrollTo(0, 0)
 })

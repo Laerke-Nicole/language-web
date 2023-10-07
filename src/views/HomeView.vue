@@ -6,6 +6,7 @@ import { ref } from 'vue'
 
 const { tutors, getTutorsData } = useTutors();
 
+// scroll to top when opening page
 onMounted(() => {
   getTutorsData();
 })
