@@ -1,6 +1,6 @@
 <template>
   
-  <div>
+  <!-- <div>
     <dialog ref="dialogg" id="dialogbox" >
       <h1>Updated tutor information</h1>
 
@@ -13,9 +13,9 @@
       >
       Exit
       </button>
-  
+   -->
       <!-- complete update button -->
-      <button class="black-btn" @click="firebaseUpdateSingleItem(tutor.id), snackbarTest()">Update tutor information</button>
+      <!-- <button class="black-btn" @click="firebaseUpdateSingleItem(tutor.id), snackbarTest()">Update tutor information</button>
     </div>
     
     <h1>test</h1>
@@ -24,7 +24,7 @@
       <p>Name</p>
       <p>
         <input type="text" placeholder="Edit tutor name" v-model="UpdateTutor.tutorName" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-      </p>
+      </p> -->
 
       
 <!-- 
@@ -77,42 +77,42 @@
       <p>
         <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20">
       </p> -->
-    </div>
+    <!-- </div>
 
-  </div>
+  </div> -->
 
 </template>
 
 <script setup>
-import { onMounted, toRefs, computed } from 'vue'
-import useTutors from '../modules/useTutors.js'
-import languages from '../modules/useLanguages.js'
-import snackbarTest from '../modules/snackbarTest';
+// import { onMounted, toRefs, computed } from 'vue'
+// import useTutors from '../modules/useTutors.js'
+// import languages from '../modules/useLanguages.js'
+// import snackbarTest from '../modules/snackbarTest';
 
 
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
-const { tutors, 
-  getTutorsData, 
-  firebaseUpdateSingleItem,
-} = useTutors();
+// const { tutors, 
+//   getTutorsData, 
+//   firebaseUpdateSingleItem,
+// } = useTutors();
 
-onMounted(() => {
-  getTutorsData();
-})
+// onMounted(() => {
+//   getTutorsData();
+// })
 
-// get single page
-const props = defineProps({
-  id: String
-})
+// // get single page
+// const props = defineProps({
+//   id: String
+// })
 
-const { id } = toRefs(props)
+// const { id } = toRefs(props)
 
-const UpdateTutor = computed(() => {
-  // return tutors.value.filter(item => item.id == id.value)
-  return tutors.value.find(tutor => tutor.id === id.value)
-})
+// const UpdateTutor = computed(() => {
+//   // return tutors.value.filter(item => item.id == id.value)
+//   return tutors.value.find(tutor => tutor.id === id.value)
+// })
 
 
 </script>

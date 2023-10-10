@@ -131,14 +131,14 @@
                 <div>
                   <!-- complete edit button -->
                   <!-- teleport modal with update tutor -->
-                  <button @click="isOpen = true" class="black-btn mb-12">Edit tutor information</button>
+                  <!-- <button @click="isOpen = true" class="black-btn mb-12">Edit tutor information</button>
                   <teleport to="body">
                     <div class="modal" v-if="isOpen">
                       <UpdateTutor @close="isOpen = false">
 
                       </UpdateTutor>
                     </div>
-                  </teleport>
+                  </teleport> -->
                 </div>
                 
               <!-- <button class="btn-edit black-btn" @click="firebaseUpdateSingleItem(tutor)">Edit tutor information</button> -->
@@ -163,6 +163,8 @@ import languages from '../modules/useLanguages.js'
 // teleport components
 import AddTutor from '../components/AddTutor.vue'
 import UpdateTutor from '../components/UpdateTutor.vue'
+
+
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { tutors, 
