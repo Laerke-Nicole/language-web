@@ -1,7 +1,7 @@
 <template>
     <div>
       <dialog ref="dialogg" id="dialogbox" >
-        <h1>Added stuff to firebase, yay you!</h1>
+        <h1>Added tutor to Firebase</h1>
   
       </dialog>
       <div class="flex gap-4 pb-12">
@@ -42,21 +42,13 @@
   </template>
   
 <script setup>
-import { ref } from 'vue';
 import useTutors from '../modules/useTutors';
 import languages from '../modules/useLanguages.js'
+import snackbarTest from '../modules/snackbarTest';
 
-const dialogg = ref(null);
 
-let snackbarTest = () => {
-    dialogg.value.setAttribute("open", "");
-    //document.getElementById("dialogbox").setAttribute("open", "");
-    setTimeout(() => { 
-        dialogg.value.removeAttribute("open");
-        // document.getElementById("dialogbox").removeAttribute("open");
-    }, 2000);
-}
 
+// create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { 
     firebaseAddSingleItem ,
     AddTutorData,

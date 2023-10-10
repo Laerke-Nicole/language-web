@@ -63,10 +63,6 @@
               <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20">
             </div>     
 
-            <!-- Delete tutor button -->
-            <button class="btn-delete black-btn" @click="firebaseDeleteSingleItem(tutor.id)">Delete tutor</button>
-
-
             <!-- edit tutor  -->
             <!-- inputs to edit tutor information -->
             <div>
@@ -124,8 +120,29 @@
               <p>
                 <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20">
               </p>
-              <!-- complete edit button -->
-              <button class="btn-edit black-btn" @click="firebaseUpdateSingleItem(tutor)">Edit tutor information</button>
+
+              <div class="flex gap-4">
+                <div>
+                  <!-- Delete tutor button -->
+                  <button class="btn-delete black-btn" @click="firebaseDeleteSingleItem(tutor.id)">Delete tutor</button>
+                  
+                </div>
+                      
+                <div>
+                  <!-- complete edit button -->
+                  <!-- teleport modal with update tutor -->
+                  <button @click="isOpen = true" class="black-btn mb-12">Edit tutor information</button>
+                  <teleport to="body">
+                    <div class="modal" v-if="isOpen">
+                      <UpdateTutor @close="isOpen = false">
+
+                      </UpdateTutor>
+                    </div>
+                  </teleport>
+                </div>
+                
+              <!-- <button class="btn-edit black-btn" @click="firebaseUpdateSingleItem(tutor)">Edit tutor information</button> -->
+            </div>
               
             </div>
             
@@ -138,12 +155,14 @@
 
 
 <script setup>
-import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
-import languages from '../modules/useLanguages.js'
-import AddTutor from '../components/AddTutor.vue'
 import { ref } from 'vue';
+import useTutors from '../modules/useTutors.js'
+import languages from '../modules/useLanguages.js'
 
+// teleport components
+import AddTutor from '../components/AddTutor.vue'
+import UpdateTutor from '../components/UpdateTutor.vue'
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { tutors, 
@@ -183,7 +202,7 @@ const isOpen = ref(false);
 /* modal styling */
 .modal {
   position: fixed;
-  top: 6%;
+  top: 10%;
   left: 0;
   z-index: 100;
   width: 100%;
@@ -199,9 +218,11 @@ const isOpen = ref(false);
   border-radius: 10px;
   padding: 45px 20px;
   width: 90%;
+  max-height: 80%;
   top: 40px;
   left: 40px;
   position: absolute;
+  overflow-y: auto;
 }
 
 #floatyClose {
