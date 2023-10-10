@@ -15,31 +15,16 @@
       <div class="flex flex-col justify-center gap-2 pt-14">
         <h1 class="pb-2 white-headline">Add tutor information</h1>
 
-        <input type="text" placeholder="Tutors name" v-model="AddTutorData.tutorName" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        
-        <!-- language they speak -->
-        <div>
-          <p class="white-text">Select a language in the dropdown: </p>
-        </div>
-        <select v-model="AddTutorData.tutorSpeaks" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-          <option v-for="language in languages" :key="language" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
-            <p>{{ language.language }}</p>
-          </option> 
-        </select>
+        <!-- teleport modal with add tutor -->
+        <button @click="isOpen = true" class="black-btn mb-12">Add new tutor</button>
+        <teleport to="body">
+          <div class="modal" v-if="isOpen">
+            <AddTutor @close="isOpen = false">
 
-        <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutors lessons" v-model="AddTutorData.tutorLessons" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutors students" v-model="AddTutorData.tutorStudents" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutors attendence" v-model="AddTutorData.tutorAttendance" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImg" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            </AddTutor>
+          </div>
+        </teleport>
       </div>
-
-      <!-- add tutor button -->
-      <button class="black-btn mb-20" @click="firebaseAddSingleItem()">Add tutor</button>
-
-
 
       <!-- printed tutor information in a loop -->
       <div v-for="tutor in tutors" :key="tutor">
@@ -156,16 +141,17 @@
 import useTutors from '../modules/useTutors.js'
 import { onMounted } from 'vue'
 import languages from '../modules/useLanguages.js'
+import AddTutor from '../components/AddTutor.vue'
+import { ref } from 'vue';
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { tutors, 
   getTutorsData, 
   firebaseDeleteSingleItem, 
-  firebaseAddSingleItem,
-  AddTutorData,
+  // firebaseAddSingleItem,
+  // AddTutorData,
   firebaseUpdateSingleItem,
-  // UpdateTutorData
 } = useTutors();
 
 onMounted(() => {
@@ -178,6 +164,12 @@ onMounted(() => {
   window.scrollTo(0, 0)
 })
 
+
+// modal button open and close
+const isOpen = ref(false);
+
+
+
 </script>
 
 
@@ -185,6 +177,39 @@ onMounted(() => {
 .parameters-container {
   padding: 0 10%;
   padding-top: 80px;
+}
+
+
+/* modal styling */
+.modal {
+  position: fixed;
+  top: 6%;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal > div {
+  background-color: var(--extra-white);
+  border-radius: 10px;
+  padding: 45px 20px;
+  width: 90%;
+  top: 40px;
+  left: 40px;
+  position: absolute;
+}
+
+#floatyClose {
+  position: absolute;
+  top: 96px;
+  margin: 10px;
+  cursor: pointer;
+  z-index:110;
 }
 
 
