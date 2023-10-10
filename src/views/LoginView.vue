@@ -1,5 +1,5 @@
 <template>
-    <div class="pt-20 pb-20 secondary-bg">
+    <div class="pt-20 pb-20 white-bg">
         <div class="mt-14 max-w-md m-auto relative flex flex-col p-12 round-corner text-black primary-bg">
             <h3 class="text-2xl font-bold mb-2 black-headline text-center">Login</h3>
 

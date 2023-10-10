@@ -84,13 +84,18 @@ const useTutors = () => {
             tutorLessons: AddTutorData.value.tutorLessons = '',
             tutorStudents: AddTutorData.value.tutorStudents = '',
             tutorAttendance: AddTutorData.value.tutorAttendance = '',
+
+            // add snackbar javascript here
+            // maybe
+            // snackbar.value = true
         })
 
         console.log("is added")
     }
 
     // update information                  // make it use the information we have
-    const firebaseUpdateSingleItem = async (tutor) => { 
+   /*  const firebaseUpdateSingleItem = async (tutor) => { 
+        debugger  
         await updateDoc(doc(tutorDataRef, tutor), {
             tutorName: tutors.value.find(tutor => tutor.id === tutor.id).tutorName,
             tutorSpeaks: tutors.value.find(tutor => tutor.id === tutor.id).tutorSpeaks,
@@ -101,7 +106,8 @@ const useTutors = () => {
             tutorLessons: tutors.value.find(tutor => tutor.id === tutor.id).tutorLessons,
             tutorStudents: tutors.value.find(tutor => tutor.id === tutor.id).tutorStudents,
             tutorAttendance: tutors.value.find(tutor => tutor.id === tutor.id).tutorAttendance,
-        }).then(() => {
+            
+        }).then(() => { 
             UpdateTutorData.value.tutorName = ''
             UpdateTutorData.value.tutorSpeaks = ''
             UpdateTutorData.value.tutorPrice = ''
@@ -112,8 +118,52 @@ const useTutors = () => {
             UpdateTutorData.value.tutorStudents = ''
             UpdateTutorData.value.tutorAttendance = ''
         })
-    }
+    } */
 
+    
+    const firebaseUpdateSingleItem = async (tutor) => { 
+        //  debugger;
+        
+        const foundTutor = tutors.value.find(item => item.id === tutor.id);
+    
+        if (foundTutor) {
+            const {
+                tutorName,
+                tutorSpeaks,
+                tutorPrice,
+                tutorAbout,
+                tutorTeachingStyle,
+                tutorImg,
+                tutorLessons,
+                tutorStudents,
+                tutorAttendance
+            } = foundTutor;
+    
+            await updateDoc(doc(tutorDataRef, tutor.id), {
+                tutorName,
+                tutorSpeaks,
+                tutorPrice,
+                tutorAbout,
+                tutorTeachingStyle,
+                tutorImg,
+                tutorLessons,
+                tutorStudents,
+                tutorAttendance
+            }).then(() => {  // overflødig 
+                // Update reactive properties using Vue's ref or reactive
+                /* UpdateTutorData.value.tutorName = '';  // Assuming you are using ref for UpdateTutorData.value
+                UpdateTutorData.value.tutorSpeaks = '';
+                UpdateTutorData.value.tutorPrice = '';
+                UpdateTutorData.value.tutorAbout = '';
+                UpdateTutorData.value.tutorTeachingStyle = '';
+                UpdateTutorData.value.tutorImg= '';
+                UpdateTutorData.value.tutorLessons = '';
+                UpdateTutorData.value.tutorStudents = '';
+                UpdateTutorData.value.tutorAttendance = ''; */
+            });
+        }
+    }
+    
 
     return {
         getTutorsData,
