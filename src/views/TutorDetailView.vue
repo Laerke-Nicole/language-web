@@ -49,49 +49,94 @@
         <h3>Book a lesson now</h3>
       </div>
       
-      <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-8">
+      <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-12">
         <div class="pb-6">
-          <h4 class="white-text">January, 2023</h4>
+          <h3 class="white-text">January, 2023</h3>
         </div>
 
         <div class="flex gap-20">
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Mon</h5>
             <p class="white-text">3</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Tue</h5>
             <p class="white-text">4</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Wed</h5>
             <p class="white-text">5</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Thu</h5>
             <p class="white-text">6</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Fri</h5>
             <p class="white-text">7</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Sat</h5>
             <p class="white-text">8</p>
           </div>
 
-          <div class="flex flex-col justify-center items-center">
+          <div class="date flex flex-col justify-center items-center">
             <h5 class="white-headline text-xl">Sun</h5>
             <p class="white-text">9</p>
           </div>
 
         </div>
 
+        <div class="flex flex-col pt-8">
+          <div>
+            <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
+          </div>
+          
+          <div class="flex gap-4">
+            <div>
+              <h5 class="white-headline text-lg">Morning</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+            </div>
+
+            <div>
+              <h5 class="white-headline text-lg">Afternoon</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+            </div>
+
+            <div>
+              <h5 class="white-headline text-lg">Evening</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+              <p class="white-text">00.00 - 00.00</p>
+            </div>
+          </div>
+
+          <!-- button to book lecture -->
+          <div class="pt-6">
+            <button class="black-btn">Book lecture</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -125,5 +170,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
+.date:hover {
+  
+}
 </style>
