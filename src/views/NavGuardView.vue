@@ -9,6 +9,11 @@
 </div> -->
 
 
+<div class="pt-20">
+  <BookedStudentInfo></BookedStudentInfo>
+</div>
+
+
     <div class="parameters-container pt-20">
 
       <!-- add tutor  -->
@@ -127,7 +132,7 @@
               <div class="flex gap-4">
                 <div>
                   <!-- Delete tutor button -->
-                  <button class="btn-delete black-btn" @click="firebaseDeleteSingleItem(tutor.id)">Delete tutor</button>
+                  <button class="btn-delete black-btn" @click="firebaseDeleteSingleTutor(tutor.id)">Delete tutor</button>
                   
                 </div>
                       
@@ -144,7 +149,7 @@
                   </teleport> -->
                 </div>
                 
-              <!-- <button class="btn-edit black-btn" @click="firebaseUpdateSingleItem(tutor)">Edit tutor information</button> -->
+              <!-- <button class="btn-edit black-btn" @click="firebaseUpdateSingleTutor(tutor)">Edit tutor information</button> -->
             </div>
               
             </div>
@@ -167,16 +172,17 @@ import languages from '../modules/useLanguages.js'
 import AddTutor from '../components/AddTutor.vue'
 import UpdateTutor from '../components/UpdateTutor.vue'
 import AddedTutorList from '../components/AddedTutorList.vue'
+import BookedStudentInfo from '../components/BookedStudentInfo.vue'
 
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { tutors, 
   getTutorsData, 
-  firebaseDeleteSingleItem, 
-  // firebaseAddSingleItem,
+  firebaseDeleteSingleTutor, 
+  // firebaseAddSingleTutor,
   // AddTutorData,
-  firebaseUpdateSingleItem,
+  firebaseUpdateSingleTutor,
 } = useTutors();
 
 onMounted(() => {

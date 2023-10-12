@@ -58,6 +58,11 @@ p {
     padding-left: 10%;
 }
 
+.ten-percent-m {
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
 
 /* classes for colors */
 .primary-color {

@@ -134,7 +134,9 @@
 
           <!-- button to book lecture -->
           <div class="pt-6">
-            <button class="black-btn">Book lecture</button>
+            <RouterLink :to="{ name: 'bookingstudentinfo' }">
+              <button class="black-btn">Book lesson</button>
+            </RouterLink>
           </div>
         </div>
       </div>

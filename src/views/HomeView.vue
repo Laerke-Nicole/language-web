@@ -6,12 +6,12 @@ import { ref } from 'vue'
 
 const { tutors, getTutorsData } = useTutors();
 
-// scroll to top when opening page
+
 onMounted(() => {
   getTutorsData();
 })
 
-
+// scroll to top when opening page
 onMounted(() => {
   window.scrollTo(0, 0)
 })
@@ -59,13 +59,17 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       <button class="white-btn">English</button> -->
     </div>
 
-
       <!-- container for all cards with tutors -->
       <div class="cards-container pt-14 pb-14 flex flex-row gap-x-4 gap-y-6 ten-percent primary-bg">
         <div v-for="tutor in tutors" :key="tutor" class="card">
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
-            <div class="card-content flex flex-col round-corner tertiary-bg">
+            <div 
+            class="card-content flex flex-col round-corner tertiary-bg" 
+            v-motion
+            :initial="{ opacity: 0, y: 100 }"
+            :visibleOnce="{ opacity: 1, y: 0}"
+            >
               <div class="ten-percent pt-6 pb-5 round-corner">
                 <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
               </div>
@@ -90,7 +94,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
     <div class="flex flex-col">
 
       <!-- Online tutor -->
-      <div class="chess secondary-bg flex">
+      <div class="chess secondary-bg flex" v-motion-fade-visible-once>
         <div class="w-6/12 flex flex-col items-center justify-center">
           <img :src="chessOne" alt="student-lesson">
         </div>
@@ -104,7 +108,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       </div>
 
       <!-- Learn at any level -->
-      <div class="chess primary-bg flex">
+      <div class="chess primary-bg flex" v-motion-fade-visible-once>
         <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
           <div>
             <h5 class="pb-2 text-3xl">Learn at any level</h5>
@@ -118,7 +122,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       </div>
 
       <!-- three different languages -->
-      <div class="chess secondary-bg flex">
+      <div class="chess secondary-bg flex" v-motion-fade-visible-once>
         <div class="w-6/12 flex flex-col items-center justify-center">
           <img :src="chessThree" alt="hello-in-languages">
         </div>
@@ -172,11 +176,15 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
   height: 300px;
 }
 
+.card-content:hover {
+  background-color: var(--extra-white);
+}
 
 /* chess design */
 .chess{
   /* height: 80vh; */
 }
+
 
 
 </style>

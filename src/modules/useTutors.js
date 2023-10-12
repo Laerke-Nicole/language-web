@@ -52,13 +52,13 @@ const useTutors = () => {
     }
 
     // accept the button that deletes that added item
-    const firebaseDeleteSingleItem = async (id) => {
+    const firebaseDeleteSingleTutor = async (id) => {
         await deleteDoc(doc(db, "tutors", id));
         console.log("is deleted", id);
     }
 
     // accept the button that adds item
-    const firebaseAddSingleItem = async () => { 
+    const firebaseAddSingleTutor = async () => { 
         // tell it where to go
         await addDoc(collection(db, "tutors"),
             // tell it what to add
@@ -94,7 +94,7 @@ const useTutors = () => {
     }
 
     // update information                  // make it use the information we have
-   /*  const firebaseUpdateSingleItem = async (tutor) => { 
+   /*  const firebaseUpdateSingleTutor = async (tutor) => { 
         debugger  
         await updateDoc(doc(tutorDataRef, tutor), {
             tutorName: tutors.value.find(tutor => tutor.id === tutor.id).tutorName,
@@ -121,10 +121,10 @@ const useTutors = () => {
     } */
 
     
-    const firebaseUpdateSingleItem = async (tutor) => { 
+    const firebaseUpdateSingleTutor = async (tutor) => { 
         //  debugger;
         
-        const foundTutor = tutors.value.find(item => item.id === tutor.id);
+        const foundTutor = tutors.value.find(tutor => tutor.id === tutor.id);
     
         if (foundTutor) {
             const {
@@ -168,10 +168,10 @@ const useTutors = () => {
     return {
         getTutorsData,
         tutors,
-        firebaseDeleteSingleItem,
-        firebaseAddSingleItem,
+        firebaseDeleteSingleTutor,
+        firebaseAddSingleTutor,
         AddTutorData,
-        firebaseUpdateSingleItem,
+        firebaseUpdateSingleTutor,
         UpdateTutorData
     }
 }
