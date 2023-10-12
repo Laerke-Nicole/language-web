@@ -65,11 +65,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
           <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
             <div 
-            class="card-content flex flex-col round-corner tertiary-bg" 
-            v-motion
-            :initial="{ opacity: 0, y: 100 }"
-            :visibleOnce="{ opacity: 1, y: 0}"
-            >
+            class="card-content flex flex-col round-corner tertiary-bg">
               <div class="ten-percent pt-6 pb-5 round-corner">
                 <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
               </div>

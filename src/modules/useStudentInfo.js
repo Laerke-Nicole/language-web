@@ -43,9 +43,6 @@ const useStudentInfo = () => {
 
 
 
-
-
-
     // // experimented with making it only push to the next page if all fields are filled in
 
     // const firebaseAddSingleStudent = async () => {

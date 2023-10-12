@@ -87,6 +87,8 @@ const {
 
 } = useStudentInfo();
 
+
+
 // scroll to top when opening page
 onMounted(() => {
   window.scrollTo(0, 0)

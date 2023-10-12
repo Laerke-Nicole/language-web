@@ -4,7 +4,7 @@
       <div class="flex">
         <!-- left side with img and about -->
         <div class="flex flex-col w-3/6 ten-percent white-bg pt-20 pb-20">
-          <h2>{{ tutor.tutorName }}</h2>
+          <h2 class="text-3xl">{{ tutor.tutorName }}</h2>
           <img :src="tutor.tutorImg" alt="tutor-profile-picture" class="pt-6 pb-6">
           <div>
             <h4 class="text-2xl">About me</h4>
@@ -97,16 +97,12 @@
             <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
           </div>
           
-          <div class="flex gap-4">
+          <div class="flex gap-48">
             <div>
               <h5 class="white-headline text-lg">Morning</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col">
+              <div v-for="time in times" :key="time" clas="flex flex-col gap-2">
                 <p class="white-text">{{ time.time }}</p>
               </div>
-
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
             </div>
 
             <div>
@@ -114,10 +110,6 @@
               <div v-for="time in times" :key="time" clas="flex flex-col">
                 <p class="white-text">{{ time.time }}</p>
               </div>
-
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
             </div>
 
             <div>
@@ -125,10 +117,6 @@
               <div v-for="time in times" :key="time" clas="flex flex-col">
                 <p class="white-text">{{ time.time }}</p>
               </div>
-
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
-              <p class="white-text">00.00 - 00.00</p>
             </div>
           </div>
 

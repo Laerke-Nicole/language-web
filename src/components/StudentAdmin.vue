@@ -8,13 +8,20 @@
             <div class="flex flex-col gap-2">
               <!-- <AddedTutorList></AddedTutorList> -->
               
-              <h5 class="text-xl">
-                First name: {{ student.studentFirstName }}
-              </h5>
+              <div class="flex">
+                <h5 class="text-xl">
+                  Name: {{ student.studentFirstName }} {{ student.studentLastName }}
+                </h5>
+              </div>
               <p>
-                Last name: {{ student.studentLastName }}
+                Email: {{ student.studentEmail }}
               </p>
-            </div>     
+              <p>
+                Message: {{ student.studentMsg }}
+              </p>
+
+              <button class="btn-delete black-btn mt-4" @click="firebaseDeleteSingleStudent(student.id)">Delete student</button>
+            </div>
           </div>
         </div>
       </div>
@@ -24,7 +31,8 @@
 import useStudentInfo from '../modules/useStudentInfo.js';
 import { onMounted } from 'vue'
 
-const { students, getStudentsData } = useStudentInfo();
+
+const { students, getStudentsData, firebaseDeleteSingleStudent } = useStudentInfo();
 
 onMounted(() => {
   getStudentsData();

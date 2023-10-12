@@ -29,11 +29,23 @@
         </select>
 
         <input type="text" placeholder="Tutor price" v-model="AddTutorData.tutorPrice" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="About tutor" v-model="AddTutorData.tutorAbout" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-        <input type="text" placeholder="Tutors teaching style" v-model="AddTutorData.tutorTeachingStyle" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+
+        <p class="black-text">About tutor</p>
+        <div class="mt-2.5">
+          <textarea name="message" id="message" rows="4" class="white-bg round-corner border-none text-sm w-full h-18 mb-4" v-model="AddTutorData.tutorAbout" />
+        </div>
+
+        <p class="black-text">Teaching style</p>
+        <div class="mt-2.5">
+          <textarea name="message" id="message" rows="4" class="white-bg round-corner border-none text-sm w-full h-18 mb-4" v-model="AddTutorData.tutorTeachingStyle" />
+        </div>
+
         <input type="text" placeholder="Tutors lessons" v-model="AddTutorData.tutorLessons" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+        
         <input type="text" placeholder="Tutors students" v-model="AddTutorData.tutorStudents" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+        
         <input type="text" placeholder="Tutors attendence" v-model="AddTutorData.tutorAttendance" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+        
         <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImg" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
   
       </div>
