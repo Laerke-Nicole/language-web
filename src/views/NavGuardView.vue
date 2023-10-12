@@ -16,7 +16,7 @@
         <h1 class="pb-2 white-headline">Add tutor information</h1>
 
         <!-- teleport modal with add tutor -->
-        <button @click="isOpen = true" class="black-btn mb-12">Add new tutor</button>
+        <button @click="isOpen = true" class="white-btn mb-12">Add new tutor</button>
         <teleport to="body">
           <div class="modal" v-if="isOpen">
             <AddTutor @close="isOpen = false">
@@ -25,6 +25,7 @@
           </div>
         </teleport>
       </div>
+      
 
       <!-- printed tutor information in a loop -->
       <div v-for="tutor in tutors" :key="tutor">
@@ -33,6 +34,8 @@
 
             <!-- list of printed tutor information -->
             <div class="flex flex-col gap-2">
+              <!-- <AddedTutorList></AddedTutorList> -->
+              
               <h5 class="text-xl">
                 Tutor name: {{ tutor.tutorName }}
               </h5>
@@ -60,7 +63,7 @@
               <p>
                 Tutor image:
               </p>
-              <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20">
+              <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20"> 
             </div>     
 
             <!-- edit tutor  -->
@@ -163,6 +166,7 @@ import languages from '../modules/useLanguages.js'
 // teleport components
 import AddTutor from '../components/AddTutor.vue'
 import UpdateTutor from '../components/UpdateTutor.vue'
+import AddedTutorList from '../components/AddedTutorList.vue'
 
 
 
