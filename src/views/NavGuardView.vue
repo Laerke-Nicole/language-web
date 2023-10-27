@@ -174,6 +174,7 @@ import { ref } from 'vue';
 import useTutors from '../modules/useTutors.js'
 import languages from '../modules/useLanguages.js'
 
+
 // teleport components
 import AddTutor from '../components/AddTutor.vue'
 import UpdateTutor from '../components/UpdateTutor.vue'
@@ -194,6 +195,7 @@ const { tutors,
 onMounted(() => {
   getTutorsData();
 })
+
 
 
 // scroll to top when opening page

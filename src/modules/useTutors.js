@@ -1,6 +1,8 @@
 import { db } from '../firebase.js'
 import { ref } from 'vue'
 import { collection, doc, onSnapshot, deleteDoc, addDoc, updateDoc, orderBy } from 'firebase/firestore';
+// import useImg from '../modules/useImgUpload.js'
+import { getStorage, ref as refFB, uploadBytes } from "firebase/storage";
 
 const useTutors = () => {
 
@@ -20,6 +22,7 @@ const useTutors = () => {
         tutorLessons: "",
         tutorStudents: "",
         tutorAttendance: "",
+        tutorImg: "",
     })
 
 
@@ -33,6 +36,7 @@ const useTutors = () => {
         tutorLessons: "",
         tutorStudents: "",
         tutorAttendance: "",
+        tutorImg: "",
     })
 
     // store documents
@@ -42,9 +46,6 @@ const useTutors = () => {
                 return {
                 id: doc.id,
                 ...doc.data()
-                
-                // productName: doc.data().productName,
-                // productPrice: doc.data().productPrice,
                 }
             })
         })
@@ -72,6 +73,7 @@ const useTutors = () => {
                 tutorLessons: AddTutorData.value.tutorLessons,
                 tutorStudents: AddTutorData.value.tutorStudents,
                 tutorAttendance: AddTutorData.value.tutorAttendance,
+                tutorImg: AddTutorData.value.tutorImg,
             }
         )
         .then({
@@ -84,6 +86,7 @@ const useTutors = () => {
             tutorLessons: AddTutorData.value.tutorLessons = '',
             tutorStudents: AddTutorData.value.tutorStudents = '',
             tutorAttendance: AddTutorData.value.tutorAttendance = '',
+            tutorImg: AddTutorData.value.tutorImg = '',
 
             // add snackbar javascript here
             // maybe
@@ -92,33 +95,6 @@ const useTutors = () => {
 
         console.log("is added")
     }
-
-    // update information                  // make it use the information we have
-   /*  const firebaseUpdateSingleTutor = async (tutor) => { 
-        debugger  
-        await updateDoc(doc(tutorDataRef, tutor), {
-            tutorName: tutors.value.find(tutor => tutor.id === tutor.id).tutorName,
-            tutorSpeaks: tutors.value.find(tutor => tutor.id === tutor.id).tutorSpeaks,
-            tutorPrice: tutors.value.find(tutor => tutor.id === tutor.id).tutorPrice,
-            tutorAbout: tutors.value.find(tutor => tutor.id === tutor.id).tutorAbout,
-            tutorTeachingStyle: tutors.value.find(tutor => tutor.id === tutor.id).tutorTeachingStyle,
-            tutorImg: tutors.value.find(tutor => tutor.id === tutor.id).tutorImg,
-            tutorLessons: tutors.value.find(tutor => tutor.id === tutor.id).tutorLessons,
-            tutorStudents: tutors.value.find(tutor => tutor.id === tutor.id).tutorStudents,
-            tutorAttendance: tutors.value.find(tutor => tutor.id === tutor.id).tutorAttendance,
-            
-        }).then(() => { 
-            UpdateTutorData.value.tutorName = ''
-            UpdateTutorData.value.tutorSpeaks = ''
-            UpdateTutorData.value.tutorPrice = ''
-            UpdateTutorData.value.tutorAbout = ''
-            UpdateTutorData.value.tutorTeachingStyle = ''
-            UpdateTutorData.value.tutorImg = ''
-            UpdateTutorData.value.tutorLessons = ''
-            UpdateTutorData.value.tutorStudents = ''
-            UpdateTutorData.value.tutorAttendance = ''
-        })
-    } */
 
     
     const firebaseUpdateSingleTutor = async (tutor) => { 
@@ -133,10 +109,10 @@ const useTutors = () => {
                 tutorPrice,
                 tutorAbout,
                 tutorTeachingStyle,
-                tutorImg,
                 tutorLessons,
                 tutorStudents,
-                tutorAttendance
+                tutorAttendance,
+                tutorImg,
             } = foundTutor;
     
             await updateDoc(doc(tutorDataRef, tutor.id), {
@@ -145,25 +121,39 @@ const useTutors = () => {
                 tutorPrice,
                 tutorAbout,
                 tutorTeachingStyle,
-                tutorImg,
                 tutorLessons,
                 tutorStudents,
-                tutorAttendance
-            }).then(() => {  // overflødig 
-                // Update reactive properties using Vue's ref or reactive
-                /* UpdateTutorData.value.tutorName = '';  // Assuming you are using ref for UpdateTutorData.value
-                UpdateTutorData.value.tutorSpeaks = '';
-                UpdateTutorData.value.tutorPrice = '';
-                UpdateTutorData.value.tutorAbout = '';
-                UpdateTutorData.value.tutorTeachingStyle = '';
-                UpdateTutorData.value.tutorImg= '';
-                UpdateTutorData.value.tutorLessons = '';
-                UpdateTutorData.value.tutorStudents = '';
-                UpdateTutorData.value.tutorAttendance = ''; */
+                tutorAttendance,
+                tutorImg,
+            }).then(() => {  
             });
         }
     }
+
+
+    // // image upload
+    // const storage = getStorage();
     
+    // // Firebase storage upload image + get download URL + enable button after image uploaded
+    // const uploadImg = async(tutor) => {
+    //     let file = tutor.target.files[0]; // get the file
+    //     console.log("file", file)
+    // }
+
+    // const storageRef = refFB(storage, file.name);
+
+
+    // // Create file metadata including the content type
+    // /** @type {any} */
+    // const metadata = {
+    // contentType: 'image/jpeg',
+    // };
+
+    // // Upload the file and metadata
+    // const uploadBtn = uploadBytes(storageRef, file, metadata);
+
+
+
 
     return {
         getTutorsData,

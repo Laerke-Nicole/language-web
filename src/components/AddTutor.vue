@@ -13,7 +13,7 @@
         Exit
         </button>
     
-        <button class="black-btn" @click="firebaseAddSingleTutor(), snackbarTest()">Add tutor</button>
+        <button class="black-btn" @click="firebaseAddSingleTutor(), snackbarTest()" :disabled="uploadBtn">Add tutor</button>
       </div>
       
       <div>
@@ -46,8 +46,9 @@
         
         <input type="text" placeholder="Tutors attendence" v-model="AddTutorData.tutorAttendance" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
         
-        <input type="text" placeholder="Tutor image" v-model="AddTutorData.tutorImg" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-  
+        <!-- image -->
+        <input v-on:change="tutorImg" alt="tutor pfp" type="file" label="File input" width="200" height="200" @change="uploadImg">
+
       </div>
   
     </div>
@@ -55,17 +56,15 @@
   
 <script setup>
 import useTutors from '../modules/useTutors';
-import languages from '../modules/useLanguages.js'
+import languages from '../modules/useLanguages.js';
 import snackbarTest from '../modules/snackbarTest';
-
-
-
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { 
-    firebaseAddSingleTutor,
-    AddTutorData,
+  firebaseAddSingleTutor,
+  AddTutorData,
 } = useTutors();
+
 
 </script>
   
