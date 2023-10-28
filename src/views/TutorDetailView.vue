@@ -1,9 +1,9 @@
 <template>
   <div class="pt-20">
     <div v-for="tutor in tutorDetail" :key="tutor">
-      <div class="flex">
+      <div class="tutor-profile flex">
         <!-- left side with img and about -->
-        <div class="flex flex-col w-3/6 ten-percent white-bg pt-20 pb-20">
+        <div class="left-tutor flex flex-col w-3/6 ten-percent white-bg pt-20 pb-20">
           <h2 class="text-3xl">{{ tutor.tutorName }}</h2>
           <img :src="tutor.tutorImg" alt="tutor-profile-picture" class="pt-6 pb-6">
           <div>
@@ -14,14 +14,14 @@
         </div>
 
         <!-- right side with teaching style and statistics -->
-        <div class="w-3/6">
+        <div class="right-tutor w-3/6">
           <div>
             <div class="primary-bg ten-percent pt-20 pb-20">
               <h3 class="text-2xl">My teaching style</h3>
               <p>{{ tutor.tutorTeachingStyle }}</p>
             </div>
 
-            <div class="flex justify-between ten-percent secondary-bg pt-20 pb-20">
+            <div class="tutor-stats flex justify-between ten-percent secondary-bg pt-20 pb-20">
               <div class="flex flex-col">
                 <h4 class="white-headline text-3xl">{{ tutor.tutorLessons }}</h4>
                 <p class="white-text">Lessons</p>
@@ -54,50 +54,24 @@
           <h3 class="white-text">January, 2023</h3>
         </div>
 
-        <div class="flex gap-20">
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Mon</h5>
-            <p class="white-text">3</p>
-          </div>
 
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Tue</h5>
-            <p class="white-text">4</p>
+        <!-- calendar with day and date -->
+        <div class="calendar-container flex gap-20">
+          <div v-for="calendar in calendar" :key="calendar">
+            <div class="date flex flex-col justify-center items-center">
+              <h5 class="white-headline text-xl">{{ calendar.day }}</h5>
+              <p class="white-text">{{ calendar.date }}</p>
+            </div>
           </div>
-
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Wed</h5>
-            <p class="white-text">5</p>
-          </div>
-
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Thu</h5>
-            <p class="white-text">6</p>
-          </div>
-
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Fri</h5>
-            <p class="white-text">7</p>
-          </div>
-
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Sat</h5>
-            <p class="white-text">8</p>
-          </div>
-
-          <div class="date flex flex-col justify-center items-center">
-            <h5 class="white-headline text-xl">Sun</h5>
-            <p class="white-text">9</p>
-          </div>
-
         </div>
+
 
         <div class="flex flex-col pt-8">
           <div>
             <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
           </div>
           
-          <div class="flex gap-48">
+          <div class="times flex gap-48">
             <div>
               <h5 class="white-headline text-lg">Morning</h5>
               <div v-for="time in times" :key="time" clas="flex flex-col gap-2">
@@ -135,6 +109,7 @@
 <script setup>
 import useTutors from '@/modules/useTutors.js'
 import { onMounted, toRefs, computed } from 'vue'
+import calendar from '../modules/calendar.js';
 
 onMounted(() => {
   getTutorsData();
@@ -160,7 +135,58 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.date:hover {
-  
+
+/* responsive design */
+@media only screen and (max-width: 950px) {
+  .tutor-profile {
+    flex-direction: column;
+  }
+
+  .right-tutor, .left-tutor {
+    width: 100%;
+  }
+
+
+  /* calendar */
+  .calendar-container {
+    gap: 40px;
+  }
+
+  .times {
+    gap: 40px;
+  }
+
 }
+
+
+@media only screen and (max-width: 600px) {
+  /* calendar */
+  .calendar-container {
+    gap: 16px;
+  }
+
+  .calendar-container h5 {
+    font-size: 18px;
+  }
+
+  .times {
+    gap: 16px;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+  .tutor-stats{
+    flex-direction: column;
+    gap: 24px;
+  }
+}
+
+
+
+
+
+
+
+
 </style>

@@ -135,7 +135,7 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
   <RouterView />
 
   <footer class="tertiary-bg">
-    <div class="flex flex-row ten-percent pt-14 pb-14 justify-evenly">
+    <div class="footer-container flex flex-row ten-percent pt-14 pb-14 justify-evenly">
 
       <!-- left side of footer -->
       <div class="flex flex-col">
@@ -231,6 +231,15 @@ footer li:hover {
 
 .copyright {
   background-color: var(--extra-white);
+}
+
+
+/* responsive design */
+@media only screen and (max-width: 950px) {
+  .footer-container{
+    flex-direction: column;
+    gap: 16px;
+  }
 }
 
 

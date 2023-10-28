@@ -1,5 +1,6 @@
 <script setup>
 import useTutors from '../modules/useTutors.js'
+import languages from '../modules/useLanguages.js';
 import { onMounted } from 'vue'
 import { ref } from 'vue'
 
@@ -34,7 +35,10 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
     <div v-else>Ikke logged ind</div> -->
 
-    <div class="flex tertiary-bg">
+
+
+    <!-- landing page -->
+    <div class="front-page-landing flex tertiary-bg">
       <div class="frontpage-left ten-percent pt-20 pb-20 justify-centercontent-center">
         <h1 class="pb-2">Learn a language today</h1>
         <p class="pb-6">We have professional tutors from different countries ready to teach you your desired language with 1 on 1 talks with a tutor.</p>
@@ -53,49 +57,55 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       <p>Our online platform allows you to choose from a wide range of Dutch classes <br> and schedule a lesson in your desired language.</p>
     </div>
 
-    <div v-for="language in languages" :key="language" class="ten-percent pt-6 pb-6 lang-btn-container flex gap-4 flex-row">
-      <!-- <button class="white-btn">{{language.languages}}</button> -->
-      <!-- <button class="white-btn">Dutch</button>
-      <button class="white-btn">English</button> -->
+
+
+    <!-- language buttons -->
+    <div class="language-btns flex w-full gap-4 secondary-bg pt-6 pb-6 ten-percent">
+      <div v-for="language in languages" :key="language">
+          <button class="white-btn">{{language.language}}</button> 
+      </div>
     </div>
+    
 
-      <!-- container for all cards with tutors -->
-      <div class="cards-container pt-14 pb-14 flex flex-row gap-x-4 gap-y-6 ten-percent primary-bg">
-        <div v-for="tutor in tutors" :key="tutor" class="card">
-          <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
-            <div 
-            class="card-content flex flex-col round-corner tertiary-bg">
-              <div class="ten-percent pt-6 pb-5 round-corner">
-                <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
-              </div>
+    <!-- container for all cards with tutors -->
+    <div class="cards-container pt-14 pb-14 flex flex-row gap-x-4 gap-y-6 ten-percent primary-bg">
+      <div v-for="tutor in tutors" :key="tutor" class="card">
+        <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
-              <div class="flex flex-col ten-percent">
-                <h5 class="pb-2 text-lg">{{ tutor.tutorName }}</h5>
-                <p>{{ tutor.tutorSpeaks }}</p>
+          <div 
+          class="card-content flex flex-col round-corner tertiary-bg">
+            <div class="ten-percent pt-6 pb-5 round-corner">
+              <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
+            </div>
 
-                <hr class="mt-9 mb-4">
-                <div class="flex flex-col">
-                  <p>Price per lesson:</p>
-                  <p class="font-bold">{{ tutor.tutorPrice }} EUR</p>
-                </div>
+            <div class="flex flex-col ten-percent">
+              <h5 class="pb-2 text-lg">{{ tutor.tutorName }}</h5>
+              <p>{{ tutor.tutorSpeaks }}</p>
+
+              <hr class="mt-9 mb-4">
+              <div class="flex flex-col">
+                <p>Price per lesson:</p>
+                <p class="font-bold">{{ tutor.tutorPrice }} EUR</p>
               </div>
             </div>
-          </RouterLink> 
-        </div>
+          </div>
+        </RouterLink> 
       </div>
+    </div>
+
 
 
     <!-- chess design with what you can do on the website -->
-    <div class="flex flex-col">
+    <div class="chess-section flex flex-col">
 
       <!-- Online tutor -->
       <div class="chess secondary-bg flex" v-motion-fade-visible-once>
-        <div class="w-6/12 flex flex-col items-center justify-center">
+        <div class="chess-side w-6/12 flex flex-col items-center justify-center">
           <img :src="chessOne" alt="student-lesson">
         </div>
 
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+        <div class="chess-side w-6/12 ten-percent flex flex-col items-center justify-center pt-12 pb-12">
           <div>
             <h5 class="white-headline pb-2 text-3xl">Online tutor</h5>
             <p class="white-text">You can browse through many different tutors who are ready to teach you online in a 1 on 1 conversation.</p>
@@ -104,26 +114,26 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       </div>
 
       <!-- Learn at any level -->
-      <div class="chess primary-bg flex" v-motion-fade-visible-once>
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+      <div class="chess chess-second primary-bg flex" v-motion-fade-visible-once>
+        <div class="chess-side w-6/12 ten-percent flex flex-col items-center justify-center pt-12 pb-12">
           <div>
             <h5 class="pb-2 text-3xl">Learn at any level</h5>
             <p>Our tutors can teach you a language no matter what skill level is.<br>They will adjust to your level and help you with tasks that fits your language level best.</p>
           </div>
         </div>
 
-        <div class="w-6/12 flex flex-col items-center justify-center">
+        <div class="chess-side w-6/12 flex flex-col items-center justify-center">
           <img :src="chessTwo" alt="tutor-teaching">
         </div>
       </div>
 
       <!-- three different languages -->
       <div class="chess secondary-bg flex" v-motion-fade-visible-once>
-        <div class="w-6/12 flex flex-col items-center justify-center">
+        <div class="chess-side w-6/12 flex flex-col items-center justify-center">
           <img :src="chessThree" alt="hello-in-languages">
         </div>
 
-        <div class="w-6/12 ten-percent flex flex-col items-center justify-center pt-12">
+        <div class="chess-side w-6/12 ten-percent flex flex-col items-center justify-center pt-12 pb-12">
           <div>
             <h5 class="white-headline pb-2 text-3xl">Three different languages</h5>
             <p class="white-text">We have tutors teaching three languages. We plan on expanding to more languages so you can learn even more languages.</p>
@@ -150,12 +160,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 }
 
 
-/* buttons with languages */
-.lang-btn-container {
-  background-color: var(--secondary-color);
-}
-
-
 /* loop with card */
 .cards-container {
   display: flex;
@@ -176,11 +180,57 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
   background-color: var(--extra-white);
 }
 
-/* chess design */
-.chess{
-  /* height: 80vh; */
+
+/* responsive design  */
+
+@media only screen and (max-width: 950px) {
+  /* front page first section */
+  .front-page-landing {
+    flex-direction: column;
+  }
+
+  .frontpage-left, .frontpage-right {
+    width: 100%;
+  }
+
+
+  /* tutor list */
+  .card {
+    width: calc(50% - 20px);
+  }
+
+
+  /* check  */
+  .chess {
+    flex-direction: column;
+  }
+
+  .chess-second {
+    flex-direction: column-reverse;
+  }
+
+  .chess-side {
+    width: 100%;
+  }
+
 }
 
 
+@media only screen and (max-width: 700px) {
+  /* tutor list */
+  .card {
+    width: 100%;
+  }
+}
+
+
+@media only screen and (max-width: 500px) {
+ /* language buttons */
+ .language-btns {
+    flex-direction: column;
+  }
+}
+
+/* responsive end */
 
 </style>
