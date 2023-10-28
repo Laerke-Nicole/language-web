@@ -132,16 +132,22 @@ const useTutors = () => {
 
 
     // // image upload
+
+    // // Create a root reference
     // const storage = getStorage();
     
-    // // Firebase storage upload image + get download URL + enable button after image uploaded
-    // const uploadImg = async(tutor) => {
-    //     let file = tutor.target.files[0]; // get the file
-    //     console.log("file", file)
-    // }
+    // // Create a reference to 'mountains.jpg'
+    // const mountainsRef = refFB(storage, 'mountains.jpg');
+    
+    // // Create a reference to 'images/mountains.jpg'
+    // const mountainImagesRef = refFB(storage, 'images/mountains.jpg');
+    
+    // // While the file names are the same, the references point to different files
+    // mountainsRef.name === mountainImagesRef.name;           // true
+    // mountainsRef.fullPath === mountainImagesRef.fullPath;   // false 
 
-    // const storageRef = refFB(storage, file.name);
 
+    // const storageRef = refFB(storage, 'images/mountains.jpg');
 
     // // Create file metadata including the content type
     // /** @type {any} */
@@ -150,7 +156,8 @@ const useTutors = () => {
     // };
 
     // // Upload the file and metadata
-    // const uploadBtn = uploadBytes(storageRef, file, metadata);
+    // const uploadTask = uploadBytes(storageRef, file, metadata);
+
 
 
 
