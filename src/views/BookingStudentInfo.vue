@@ -30,6 +30,15 @@
                     </div>
             
                     <div class="sm:col-span-2">
+                        <label class="block text-sm font-semibold leading-6 black-text">Language level</label>
+                        <select v-model="AddStudentData.studentLvl" class="white-bg round-corner border-none text-sm w-full h-11 mb-4 mt-2.5">
+                          <option v-for="level in levels" :key="level" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                            <p>{{ level.level }}</p>
+                          </option> 
+                        </select>
+                    </div>
+
+                    <div class="sm:col-span-2">
                         <label for="email" class="block text-sm font-semibold leading-6 black-text">Email</label>
                         <div class="mt-2.5">
                             <input type="email" name="email" id="email" autocomplete="email" class="white-bg round-corner border-none text-sm w-full h-11 mb-4" v-model="AddStudentData.studentEmail"/>
@@ -56,83 +65,87 @@
         </div>
 
         
+        <!-- <p>Month </p>
+        <select v-model="AddStudentData.studentMonth" class="month dates border-0 py-1.5 pl-6 pr-20">
+          <option v-for="month in months" :key="month" >
+            <p>{{ month.month }}</p>
+          </option>
+        </select> -->
 
     </div>
 
 
     <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-12">
-        <div class="pb-6">
+        <!-- <div class="pb-6">
           <h3 class="white-text">January, 2023</h3>
-        </div>
+        </div> -->
 
+
+
+        
 
         <!-- calendar with day and date -->
-        <div class="calendar-container flex gap-20">
+        <!-- <div class="calendar-container flex gap-20">
           <div v-for="calendar in calendar" :key="calendar">
             <div class="date flex flex-col justify-center items-center">
               <h5 class="white-headline text-xl">{{ calendar.day }}</h5>
               <p class="white-text">{{ calendar.date }}</p>
             </div>
           </div>
-        </div>
+        </div> -->
 
 
         <div class="flex flex-col pt-8">
           <div>
-            <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
+            <h3 class="white-headline text-xl pb-2">Time slots:</h3>
           </div>
           
           <div class="times flex gap-48">
             <div>
               <h5 class="white-headline text-lg">Morning</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col gap-2">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
+
+                <select v-model="AddStudentData.morningIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                  <option class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                    <p>Book</p>
+                  </option> 
+                </select>
             </div>
 
             <div>
               <h5 class="white-headline text-lg">Afternoon</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
+
+              <select v-model="AddStudentData.afternoonIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                <option class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                  <p>Book</p>
+                </option> 
+              </select>
             </div>
 
             <div>
               <h5 class="white-headline text-lg">Evening</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
+
+              <select v-model="AddStudentData.eveningIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+                <option class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                  <p>Book</p>
+                </option> 
+              </select>
             </div>
           </div>
 
           <!-- button to book lecture -->
           <div class="pt-6">
-            <RouterLink :to="{ name: 'bookingstudentinfo' }">
-              <button class="black-btn">Book lesson</button>
+            <RouterLink to="/">
+              <button class="black-btn" @click="firebaseAddSingleStudent()">Book lesson</button>
             </RouterLink>
           </div>
         </div>
-      </div>
-
-
-
-    <div>
-        <p>Select a month</p>
-        <select v-model="month.months" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
-            <option v-for="months in month" :key="month" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
-                <p>{{ months.month }}</p>
-            </option> 
-        </select>
-    </div>
-
+      </div> 
 </template>
 
 <script setup>
-import useStudentInfo from '../modules/useStudentInfo';
+import useStudentInfo from '../modules/useStudentInfo'
 import { onMounted } from 'vue'
-import calendar from '../modules/calendar.js';
-import months from '../modules/months.js';
-
+import levels from '../modules/languageLvl.js'
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { 

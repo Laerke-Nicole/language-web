@@ -2,25 +2,25 @@ import { ref } from 'vue'
 
 const months = ref ([
     {
-      month: "januar",
+      month: "january",
     },
     {
-      month: "februar",
+      month: "february",
     },
     {
-      month: "marts",
+      month: "march",
     },
     {
       month: "april",
     },
     {
-      month: "maj",
+      month: "may",
     },
     {
-      month: "juni",
+      month: "june",
     },
     {
-      month: "juli",
+      month: "july",
     },
     {
       month: "august",
@@ -29,7 +29,7 @@ const months = ref ([
       month: "september",
     },
     {
-      month: "oktober",
+      month: "october",
     },
     {
       month: "november",

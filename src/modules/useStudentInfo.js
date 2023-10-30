@@ -16,7 +16,11 @@ const useStudentInfo = () => {
         studentFirstName: "",
         studentLastName: "",
         studentEmail: "",
+        studentLvl: "",
         studentMsg: "",
+        morningIsTaken: "",
+        afternoonIsTaken: "",
+        eveningIsTaken: "",
     })
 
     // store documents
@@ -90,14 +94,22 @@ const firebaseAddSingleStudent = async () => {
             studentFirstName: AddStudentData.value.studentFirstName,
             studentLastName: AddStudentData.value.studentLastName,
             studentEmail: AddStudentData.value.studentEmail,
+            studentLvl: AddStudentData.value.studentLvl,
             studentMsg: AddStudentData.value.studentMsg,
+            morningIsTaken: AddStudentData.value.morningIsTaken,
+            afternoonIsTaken: AddStudentData.value.afternoonIsTaken,
+            eveningIsTaken: AddStudentData.value.eveningIsTaken,
         }
     )
     .then({
         studentFirstName: AddStudentData.value.studentFirstName = '',
         studentLastName: AddStudentData.value.studentLastName = '',
         studentEmail: AddStudentData.value.studentEmail = '',
+        studentLvl: AddStudentData.value.studentLvl = '',
         studentMsg: AddStudentData.value.studentMsg = '',
+        morningIsTaken: AddStudentData.value.morningIsTaken = '',
+        afternoonIsTaken: AddStudentData.value.afternoonIsTaken = '',
+        eveningIsTaken: AddStudentData.value.eveningIsTaken = '',
     })
     .then(() => {
         router.push('/')
@@ -106,7 +118,7 @@ const firebaseAddSingleStudent = async () => {
     console.log("student added")
 }
 
-    
+
 
     return {
         getStudentsData,
