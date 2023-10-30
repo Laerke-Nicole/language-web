@@ -45,63 +45,19 @@
 
     <!-- booking -->
     <div>
-      <div class="flex justify-center items-center ten-percent pt-12 pb-4 white-bg-second">
-        <h3>Book a lesson now</h3>
-      </div>
-      
-      <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-12">
-        <div class="pb-6">
-          <h3 class="white-text">January, 2023</h3>
+      <div class="flex justify-center items-center ten-percent pt-12 pb-12 white-bg-second gap-4">
+        <div>
+          <h3>Book a lesson now</h3>
         </div>
-
-
-        <!-- calendar with day and date -->
-        <div class="calendar-container flex gap-20">
-          <div v-for="calendar in calendar" :key="calendar">
-            <div class="date flex flex-col justify-center items-center">
-              <h5 class="white-headline text-xl">{{ calendar.day }}</h5>
-              <p class="white-text">{{ calendar.date }}</p>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="flex flex-col pt-8">
-          <div>
-            <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
-          </div>
-          
-          <div class="times flex gap-48">
-            <div>
-              <h5 class="white-headline text-lg">Morning</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col gap-2">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
-            </div>
-
-            <div>
-              <h5 class="white-headline text-lg">Afternoon</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
-            </div>
-
-            <div>
-              <h5 class="white-headline text-lg">Evening</h5>
-              <div v-for="time in times" :key="time" clas="flex flex-col">
-                <p class="white-text">{{ time.time }}</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- button to book lecture -->
-          <div class="pt-6">
+        
+        <!-- button to book lecture -->
+        <div>
             <RouterLink :to="{ name: 'bookingstudentinfo' }">
               <button class="black-btn">Book lesson</button>
             </RouterLink>
           </div>
-        </div>
       </div>
+      
     </div>
   </div>
 </template>
@@ -109,7 +65,6 @@
 <script setup>
 import useTutors from '@/modules/useTutors.js'
 import { onMounted, toRefs, computed } from 'vue'
-import calendar from '../modules/calendar.js';
 
 onMounted(() => {
   getTutorsData();

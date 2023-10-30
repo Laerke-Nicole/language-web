@@ -1,13 +1,5 @@
 <template>
-    <!-- <div class="pt-20 pb-20 white-bg">
-        <div class="mt-14 max-w-md m-auto relative flex flex-col p-12 round-corner text-black primary-bg">
-            
-            
-        </div>
-    </div> -->
-
-
-    <div class="pt-20 pb-20 white-bg flex flex-col justify-center items-center">
+    <div class="pt-20 pb-12 white-bg flex flex-col justify-center items-center">
         <div class="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]" aria-hidden="true">
             <div class="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
         </div>
@@ -44,6 +36,7 @@
                         </div>
                     </div>
 
+
                     <div class="sm:col-span-2">
                         <label for="message" class="block text-sm font-semibold leading-6 black-text">Message</label>
                         <div class="mt-2.5">
@@ -53,38 +46,98 @@
 
                 </div>
                 
-                <div class="mt-4">
+                <!-- <div class="mt-4">
                     <RouterLink to='/'>
                         <button type="submit" class="w-full black-btn" @click="firebaseAddSingleStudent()">Book lesson</button>
                     </RouterLink>
                     
-                </div>
+                </div> -->
             </form>  
         </div>
 
-        <!-- below form with text -->
-        <div class="mt-6 text-center">
-            <p>
-                Your personal information will not be used for marketing.<br>You will receive a confirmation of your booking via e-mail.
-            </p>
-        </div>
+        
 
     </div>
 
-    <!-- <p>{{ AddStudentData.studentName }}</p> -->
 
+    <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-12">
+        <div class="pb-6">
+          <h3 class="white-text">January, 2023</h3>
+        </div>
+
+
+        <!-- calendar with day and date -->
+        <div class="calendar-container flex gap-20">
+          <div v-for="calendar in calendar" :key="calendar">
+            <div class="date flex flex-col justify-center items-center">
+              <h5 class="white-headline text-xl">{{ calendar.day }}</h5>
+              <p class="white-text">{{ calendar.date }}</p>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="flex flex-col pt-8">
+          <div>
+            <h3 class="white-headline text-xl pb-2">Available time slots:</h3>
+          </div>
+          
+          <div class="times flex gap-48">
+            <div>
+              <h5 class="white-headline text-lg">Morning</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col gap-2">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="white-headline text-lg">Afternoon</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+            </div>
+
+            <div>
+              <h5 class="white-headline text-lg">Evening</h5>
+              <div v-for="time in times" :key="time" clas="flex flex-col">
+                <p class="white-text">{{ time.time }}</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- button to book lecture -->
+          <div class="pt-6">
+            <RouterLink :to="{ name: 'bookingstudentinfo' }">
+              <button class="black-btn">Book lesson</button>
+            </RouterLink>
+          </div>
+        </div>
+      </div>
+
+
+
+    <div>
+        <p>Select a month</p>
+        <select v-model="month.months" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
+            <option v-for="months in month" :key="month" class="white-bg round-corner border-none text-sm w-full h-11 focus:ring-0">
+                <p>{{ months.month }}</p>
+            </option> 
+        </select>
+    </div>
 
 </template>
 
 <script setup>
 import useStudentInfo from '../modules/useStudentInfo';
 import { onMounted } from 'vue'
+import calendar from '../modules/calendar.js';
+import months from '../modules/months.js';
+
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { 
     AddStudentData,
     firebaseAddSingleStudent,
-
 } = useStudentInfo();
 
 
