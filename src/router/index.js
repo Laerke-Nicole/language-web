@@ -33,9 +33,9 @@ const router = createRouter({
       component: () => import('../views/RegisterView.vue')
     },
     {
-      path: '/bookingstudentinfo',
-      name: 'bookingstudentinfo',
-      component: () => import('../views/BookingStudentInfo.vue')
+      path: '/bookingview',
+      name: 'bookingview',
+      component: () => import('../views/BookingView.vue')
     }
   ]
 })

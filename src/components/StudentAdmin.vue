@@ -36,13 +36,13 @@
 
               <div v-if="student.afternoonIsTaken === 'Book'">
                 <p>
-                  Morning: {{ student.afternoonIsTaken }}ed
+                  Afternoon: {{ student.afternoonIsTaken }}ed
                 </p>
               </div>
 
               <div v-if="student.eveningIsTaken === 'Book'">
                 <p>
-                  Morning: {{ student.eveningIsTaken }}ed
+                  Evening: {{ student.eveningIsTaken }}ed
                 </p>
               </div>
 

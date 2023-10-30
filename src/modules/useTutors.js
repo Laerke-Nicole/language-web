@@ -87,21 +87,47 @@ const useTutors = () => {
             tutorStudents: AddTutorData.value.tutorStudents = '',
             tutorAttendance: AddTutorData.value.tutorAttendance = '',
             tutorImg: AddTutorData.value.tutorImg = '',
-
-            // add snackbar javascript here
-            // maybe
-            // snackbar.value = true
         })
 
         console.log("is added")
     }
 
     
-    const firebaseUpdateSingleTutor = async (tutor) => { 
-        //  debugger;
+    // const firebaseUpdateSingleTutor = async (tutor) => { 
         
-        const foundTutor = tutors.value.find(tutor => tutor.id === tutor.id);
+    //     const foundTutor = tutors.value.find(tutor => tutor.id === tutor.id);
     
+    //     if (foundTutor) {
+    //         const {
+    //             tutorName,
+    //             tutorSpeaks,
+    //             tutorPrice,
+    //             tutorAbout,
+    //             tutorTeachingStyle,
+    //             tutorLessons,
+    //             tutorStudents,
+    //             tutorAttendance,
+    //             tutorImg,
+    //         } = foundTutor;
+    
+    //         await updateDoc(doc(tutorDataRef, tutor.id), {
+    //             tutorName,
+    //             tutorSpeaks,
+    //             tutorPrice,
+    //             tutorAbout,
+    //             tutorTeachingStyle,
+    //             tutorLessons,
+    //             tutorStudents,
+    //             tutorAttendance,
+    //             tutorImg,
+    //         }).then(() => {  
+    //         });
+    //     }
+    // }
+
+    const firebaseUpdateSingleTutor = async (tutorToUpdate) => { 
+        const foundTutor = tutors.value.find(t => t.id === tutorToUpdate.id);
+        
         if (foundTutor) {
             const {
                 tutorName,
@@ -113,9 +139,9 @@ const useTutors = () => {
                 tutorStudents,
                 tutorAttendance,
                 tutorImg,
-            } = foundTutor;
+            } = tutorToUpdate;
     
-            await updateDoc(doc(tutorDataRef, tutor.id), {
+            await updateDoc(doc(tutorDataRef, tutorToUpdate.id), {
                 tutorName,
                 tutorSpeaks,
                 tutorPrice,
@@ -125,10 +151,10 @@ const useTutors = () => {
                 tutorStudents,
                 tutorAttendance,
                 tutorImg,
-            }).then(() => {  
             });
         }
     }
+    
 
 
     // // image upload

@@ -13,7 +13,7 @@
         Exit
         </button>
     
-        <button class="black-btn" @click="firebaseAddSingleTutor(), snackbarTest()" :disabled="uploadBtn">Add tutor</button>
+        <button class="black-btn" @click="firebaseAddSingleTutor(), snackbarAddTutor()" :disabled="uploadBtn">Add tutor</button>
       </div>
       
       <div>
@@ -57,7 +57,7 @@
 <script setup>
 import useTutors from '../modules/useTutors';
 import languages from '../modules/useLanguages.js';
-import snackbarTest from '../modules/snackbarTest';
+import snackbarAddTutor from '../modules/snackbarAddTutor.js';
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
 const { 

@@ -52,7 +52,7 @@
         
         <!-- button to book lecture -->
         <div>
-            <RouterLink :to="{ name: 'bookingstudentinfo' }">
+            <RouterLink :to="{ name: 'bookingview' }">
               <button class="black-btn">Book lesson</button>
             </RouterLink>
           </div>

@@ -89,10 +89,11 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
         <RouterLink to="/register" class="text-sm font-semibold leading-6 black-text">Register</RouterLink>
         <RouterLink to="/login" class="text-sm font-semibold leading-6 black-text">Login</RouterLink>
         <RouterLink to="/" class="text-sm font-semibold leading-6 black-text"><button @click="logOut" v-if="isLoggedIn">Log out</button></RouterLink>
-        
       </div>
-
     </nav>
+
+
+    <!-- mobile menu -->
     <Dialog as="div" class="lg:hidden" @close="mobileMenuOpen = false" :open="mobileMenuOpen">
       <div class="fixed inset-0 z-10" />
       <DialogPanel class="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
@@ -118,7 +119,7 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
               <RouterLink to="/" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Find a teacher</RouterLink>
               <RouterLink to="/languages" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Languages</RouterLink>
               <RouterLink to="/community" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Community</RouterLink>
-              <RouterLink to='/navguard' v-if="isLoggedIn">Admin page</RouterLink>
+              <RouterLink to='/navguard' v-if="isLoggedIn" class="-mx-3 block round-corner px-3 py-2 text-base font-semibold leading-7 black-text">Admin page</RouterLink>
             </div>
 
             <!-- log in and register -->
@@ -134,6 +135,8 @@ let instagramLogo = ref('https://firebasestorage.googleapis.com/v0/b/language-bo
   </header>
   <RouterView />
 
+
+  <!-- footer -->
   <footer class="tertiary-bg">
     <div class="footer-container flex flex-row ten-percent pt-14 pb-14 justify-evenly">
 

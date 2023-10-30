@@ -187,8 +187,6 @@ import StudentAdmin from '../components/StudentAdmin.vue'
 const { tutors, 
   getTutorsData, 
   firebaseDeleteSingleTutor, 
-  // firebaseAddSingleTutor,
-  // AddTutorData,
   firebaseUpdateSingleTutor,
 } = useTutors();
 

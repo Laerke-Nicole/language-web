@@ -111,9 +111,13 @@ const firebaseAddSingleStudent = async () => {
         afternoonIsTaken: AddStudentData.value.afternoonIsTaken = '',
         eveningIsTaken: AddStudentData.value.eveningIsTaken = '',
     })
+
+    // push to home page after 4 seconds so it matches snackbar
     .then(() => {
-        router.push('/')
-    })
+        setTimeout(() => {
+          router.push('/');
+        }, 4000); // 4000 milliseconds = 4 seconds
+      })
 
     console.log("student added")
 }
