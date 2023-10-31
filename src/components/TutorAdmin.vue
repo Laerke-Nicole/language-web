@@ -80,14 +80,14 @@
                   </div>
 
 
-                <div class="flex gap-4">
+                <div class="btns-delete-edit flex gap-4">
                   <div>
                     <!-- Delete tutor button -->
                     <button class="btn-delete black-btn mt-4" @click="firebaseDeleteSingleTutor(tutor.id)">Delete tutor</button>
                     
                   </div>
                         
-                  <div>
+                  <!-- <div> -->
                     <!-- complete edit button -->
                     <!-- teleport modal with update tutor -->
                     <!-- <button @click="isOpen = true" class="black-btn mb-12">Edit tutor information</button>
@@ -98,9 +98,12 @@
                         </UpdateTutor>
                       </div>
                     </teleport> -->
+                  <!-- </div> -->
+
+                  <div>
+                    <!-- edit tutor button -->
+                    <button class="btn-edit black-btn mt-4" @click="firebaseUpdateSingleTutor(tutor)">Edit tutor information</button>
                   </div>
-                  
-                  <button class="btn-edit black-btn mt-4" @click="firebaseUpdateSingleTutor(tutor)">Edit tutor information</button>
                 </div>
                 
               </div>
@@ -138,5 +141,17 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* responsive design */
+@media only screen and (max-width: 950px) {
+  .btns-delete-edit {
+    flex-direction: column;
+  }
+
+  .btn-edit {
+    margin-top: 0;
+  }
+}
+
+/* responsive ends */
 
 </style>
