@@ -37,7 +37,12 @@ let logIn = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((data) => {
             console.log("test data", data)
-            router.push('/navguard')
+            
+            if (email.value == 'admin@admin.com') {
+            router.push('/navguard');
+            } else {
+                router.push('/bookingview');
+            }
         })
 
         // catch erorrs
