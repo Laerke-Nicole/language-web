@@ -98,8 +98,8 @@
                     </teleport> -->
                   </div>
                   
-                <button class="btn-edit black-btn mt-4" @click="firebaseUpdateSingleTutor(tutor)">Edit tutor information</button>
-              </div>
+                  <button class="btn-edit black-btn mt-4" @click="firebaseUpdateSingleTutor(tutor)">Edit tutor information</button>
+                </div>
                 
               </div>
               
@@ -112,6 +112,7 @@
 import { onMounted } from 'vue'
 import useTutors from '../modules/useTutors.js'
 import languages from '../modules/useLanguages.js'
+import useImg from '../modules/useImgUpload.js'
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
@@ -120,6 +121,7 @@ const { tutors,
   firebaseDeleteSingleTutor, 
   firebaseUpdateSingleTutor,
 } = useTutors();
+
 
 onMounted(() => {
   getTutorsData();

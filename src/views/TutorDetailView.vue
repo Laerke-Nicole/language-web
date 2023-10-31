@@ -52,10 +52,22 @@
         
         <!-- button to book lecture -->
         <div>
+          
+          <!-- direct to booking view if user is logged in -->
+          <div v-if="isLoggedIn">
             <RouterLink :to="{ name: 'bookingview' }">
               <button class="black-btn">Book lesson</button>
             </RouterLink>
           </div>
+
+          <!-- else direct to login view -->
+          <div v-else>
+            <RouterLink :to="{ name: 'login' }">
+              <button class="black-btn">Book lesson</button>
+            </RouterLink>
+          </div>
+            
+        </div>
       </div>
       
     </div>
@@ -87,6 +99,10 @@ const tutorDetail = computed(() => {
 onMounted(() => {
   window.scrollTo(0, 0)
 })
+
+
+
+
 </script>
 
 <style scoped>
