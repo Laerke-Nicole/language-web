@@ -8,7 +8,7 @@ let snackbarAddBooking = () => {
     setTimeout(() => { 
         // dialogg.value.removeAttribute("open");
         document.getElementById("dialogbox").removeAttribute("open");
-    }, 4000);
+    }, 3000);
 }
 
 export default snackbarAddBooking;
