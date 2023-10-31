@@ -35,7 +35,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
     <div class="front-page-landing flex tertiary-bg">
       <div class="frontpage-left ten-percent pt-20 pb-20 justify-centercontent-center">
         <h1 class="pb-2">Learn a language today</h1>
-        <p class="pb-6">We have professional tutors from different countries ready to teach you your desired language with 1 on 1 talks with a tutor.</p>
+        <p class="pb-6">We have professional tutors from different countries ready to teach you your desired language with 1 on 1 talks.</p>
         <RouterLink to="/"><button class="black-btn">Learn more</button></RouterLink>
       </div>
 
@@ -111,7 +111,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
         <div class="chess-side w-6/12 ten-percent flex flex-col items-center justify-center pt-12 pb-12">
           <div>
             <h5 class="pb-2 text-3xl">Learn at any level</h5>
-            <p>Our tutors can teach you a language no matter what skill level is.<br>They will adjust to your level and help you with tasks that fits your language level best.</p>
+            <p>Our tutors can teach you a language no matter what your skill level is.<br>They will adjust to your level and help you with tasks that fits your language level best.</p>
           </div>
         </div>
 
@@ -129,7 +129,7 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
         <div class="chess-side w-6/12 ten-percent flex flex-col items-center justify-center pt-12 pb-12">
           <div>
             <h5 class="white-headline pb-2 text-3xl">Three different languages</h5>
-            <p class="white-text">We have tutors teaching three languages. We plan on expanding to more languages so you can learn even more languages.</p>
+            <p class="white-text">We have tutors teaching three languages. We plan on expanding to more languages so you can have more options.</p>
           </div>
         </div>
       </div>
