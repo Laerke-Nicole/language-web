@@ -15,6 +15,7 @@
 
                 <button @click="logIn" class="black-btn m-auto mt-3 mb-5">Login</button>
             </div>
+            <div class="text-sm text-center mt-[1.6rem]">Have no account? <RouterLink to="/register" class="text-sm underline">Register</RouterLink></div>
         </div>
     </div>
 
