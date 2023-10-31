@@ -84,7 +84,7 @@
     </div>
 
 
-    <div class="flex flex-col justify-center items-center ten-percent secondary-bg pt-8 pb-12">
+    <div class="flex flex-col ten-percent secondary-bg pt-8 pb-12">
         <!-- <div class="pb-6">
           <h3 class="white-text">January, 2023</h3>
         </div> -->
@@ -107,11 +107,11 @@
         <div class="flex flex-col pt-8">
           <div>
             <h3 class="white-headline text-xl">Time slots to book:</h3>
-            <p class="pb-4 white-text">Select a time you want to book</p>
+            <p class="pb-6 white-text">Select a time you want to book</p>
           </div>
           
-          <div class="times flex gap-48">
-            <div>
+          <div class="times-container flex justify-evenly gap-4">
+            <div class="w-full">
               <h5 class="white-headline text-lg mb-2.5">Morning</h5>
 
                 <select v-model="AddStudentData.morningIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
@@ -123,7 +123,7 @@
                 </select>
             </div>
 
-            <div>
+            <div class="w-full">
               <h5 class="white-headline text-lg mb-2.5">Afternoon</h5>
 
               <select v-model="AddStudentData.afternoonIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
@@ -135,7 +135,7 @@
               </select>
             </div>
 
-            <div>
+            <div class="w-full">
               <h5 class="white-headline text-lg mb-2.5">Evening</h5>
 
               <select v-model="AddStudentData.eveningIsTaken" class="white-bg-second round-corner border-none text-sm w-full h-11 focus:ring-0 mb-4">
@@ -182,5 +182,12 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* responsive design  */
 
+@media only screen and (max-width: 950px) {
+  .times-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
 </style>
