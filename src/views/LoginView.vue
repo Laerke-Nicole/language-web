@@ -38,6 +38,7 @@ let logIn = () => {
         .then((data) => {
             console.log("test data", data)
             
+            // push you to either navguard or booking view depending on if your email value is admin@admin.com
             if (email.value == 'admin@admin.com') {
             router.push('/navguard');
             } else {
