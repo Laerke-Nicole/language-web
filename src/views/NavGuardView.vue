@@ -42,12 +42,6 @@
             </div>
           </teleport>
         </div>
-        
-
-        <!-- btns to choose different languages to view -->
-        <div>
-          
-        </div>
 
         <!-- display list of tutors where you can edit them -->
         <div>
@@ -63,14 +57,9 @@
         </div>
         
       </div>
-
-
-
-      
     </div>
 
 </template>
-
 
 <script setup>
 import { onMounted } from 'vue'
@@ -156,7 +145,5 @@ const toggleStudents = () => {
   cursor: pointer;
   z-index:110;
 }
-
-
 
 </style>

@@ -5,7 +5,11 @@
         <!-- left side with img and about -->
         <div class="left-tutor flex flex-col w-3/6 ten-percent white-bg pt-20 pb-20">
           <h2 class="text-3xl">{{ tutor.tutorName }}</h2>
-          <img :src="tutor.tutorImg" alt="tutor-profile-picture" class="pt-6 pb-6">
+
+          <div class="tutor-pfp pt-6 pb-6 pr-16">
+            <img :src="tutor.tutorImg" alt="tutor-profile-picture">
+          </div>
+
           <div>
             <h4 class="text-2xl">About me</h4>
             <p>{{ tutor.tutorAbout }}</p>
@@ -14,7 +18,7 @@
         </div>
 
         <!-- right side with teaching style and statistics -->
-        <div class="right-tutor w-3/6">
+        <div class="right-tutor w-3/6 secondary-bg">
           <div>
             <div class="primary-bg ten-percent pt-20 pb-20">
               <h3 class="text-2xl">My teaching style</h3>
@@ -52,9 +56,8 @@
         
         <!-- button to book lecture -->
         <div>
-          
           <!-- direct to booking view if user is logged in -->
-          <div v-if="isLoggedIn">
+          <div v-if="isLoggedIn()">
             <RouterLink :to="{ name: 'bookingview' }">
               <button class="black-btn">Book lesson</button>
             </RouterLink>
@@ -77,6 +80,7 @@
 <script setup>
 import useTutors from '@/modules/useTutors.js'
 import { onMounted, toRefs, computed } from 'vue'
+import isLoggedIn from '@/modules/isLoggedIn.js'
 
 onMounted(() => {
   getTutorsData();
@@ -101,12 +105,9 @@ onMounted(() => {
 })
 
 
-
-
 </script>
 
 <style scoped>
-
 /* responsive design */
 @media only screen and (max-width: 950px) {
   .tutor-profile {
@@ -115,6 +116,10 @@ onMounted(() => {
 
   .right-tutor, .left-tutor {
     width: 100%;
+  }
+
+  .tutor-pfp {
+    padding-right: 0;
   }
 
 
@@ -153,11 +158,6 @@ onMounted(() => {
   }
 }
 
-
-
-
-
-
-
+/* responsive end */
 
 </style>

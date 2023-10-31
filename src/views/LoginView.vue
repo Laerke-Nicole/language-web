@@ -26,8 +26,8 @@ import { ref } from 'vue'
 import { auth } from '../firebase.js'
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { onMounted } from 'vue'
-
 import router from '../router'
+
 
 let email = ref ('')
 let password = ref ('')
@@ -39,6 +39,8 @@ let logIn = () => {
             console.log("test data", data)
             router.push('/navguard')
         })
+
+        // catch erorrs
         .catch((error) => {
             switch (error.code) {
                 case 'auth/invalid-email':

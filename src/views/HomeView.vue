@@ -31,12 +31,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
 <template>
   <main class="pt-20">
-    <!-- <div v-if="isLoggedIn">Logged in</div>
-
-    <div v-else>Ikke logged ind</div> -->
-
-
-
     <!-- landing page -->
     <div class="front-page-landing flex tertiary-bg">
       <div class="frontpage-left ten-percent pt-20 pb-20 justify-centercontent-center">
@@ -73,13 +67,12 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
       <div v-for="tutor in tutors" :key="tutor" class="card">
         <RouterLink :to="{ name: 'tutordetails', params: { id: tutor.id }}">
 
-          <div 
-          class="card-content flex flex-col round-corner tertiary-bg">
-            <div class="ten-percent pt-6 pb-5 round-corner">
-              <!-- <img src="tutor.tutorImg" alt="tutors-profile-picture"> -->
+          <div class="card-content flex flex-col round-corner tertiary-bg ten-percent pt-8 pb-8">
+            <div class="round-corner">
+              <img :src="tutor.tutorImg" alt="tutors-profile-picture">
             </div>
 
-            <div class="flex flex-col ten-percent">
+            <div class="flex flex-col pt-4">
               <h5 class="pb-2 text-lg">{{ tutor.tutorName }}</h5>
               <p>{{ tutor.tutorSpeaks }}</p>
 
@@ -141,9 +134,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
         </div>
       </div>
     </div>
-
-
-
     
   </main>
 </template>
@@ -173,7 +163,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
 .card-content {
   flex-grow: 1; /* Allow content to expand within the card */
-  height: 300px;
 }
 
 .card-content:hover {
@@ -182,7 +171,6 @@ let chessThree = ref('https://firebasestorage.googleapis.com/v0/b/language-booki
 
 
 /* responsive design  */
-
 @media only screen and (max-width: 950px) {
   /* front page first section */
   .front-page-landing {

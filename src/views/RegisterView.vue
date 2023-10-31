@@ -15,6 +15,7 @@
 
                 <button @click="register" class="black-btn m-auto mt-3 mb-5">Register</button>
             </div>
+
             <div class="text-sm text-center mt-[1.6rem]">Already have an account? <RouterLink to="/login" class="text-sm underline">Log in</RouterLink></div>
         </div>
     </div>
@@ -27,6 +28,8 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from 'vue-router'
 import { onMounted } from 'vue'
 
+
+// links to the input fields where you type in what your email and password will be
 const email = ref("");
 const password = ref("");
 const router = useRouter() //get a reference to our vue router

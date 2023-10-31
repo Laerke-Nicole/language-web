@@ -74,9 +74,11 @@
                 </div>
 
                 <p>Image</p>
-                <p>
-                  <img :src="tutor.tutorImg" alt="tutor image" class="w-20 h-20 mt-2.5">
-                </p>
+                  <div>
+                    <img :src="tutor.tutorImg" alt="tutors-profile-picture" class="h-48 mt-2.5">
+                    <!-- <input v-on:change="tutor.tutorImg" @change="uploadImg" alt="tutor pfp" type="file" label="File input" width="200" height="200" class="mt-2.5"> -->
+                  </div>
+
 
                 <div class="flex gap-4">
                   <div>
@@ -112,7 +114,7 @@
 import { onMounted } from 'vue'
 import useTutors from '../modules/useTutors.js'
 import languages from '../modules/useLanguages.js'
-import useImg from '../modules/useImgUpload.js'
+
 
 
 // create file and only grab data we need... add everytime u want to add a function like add button that deletes items
